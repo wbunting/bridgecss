@@ -121,7 +121,7 @@
 </svelte:head>
 
 <style lang="scss">
-	@use 'src/bridge' as *;
+	@use './node_modules/bridgecss/assets/bridge.scss' as *;
 
 	article :global {
 		@include prose;
