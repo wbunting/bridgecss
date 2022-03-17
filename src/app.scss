@@ -1,0 +1,57 @@
+@use 'src/bridge' as *;
+// @import '@fontsource/fira-mono';
+
+body {
+	min-height: 100vh;
+	margin: 0;
+ 
+  @include dark() {
+    color: $gray-200;
+  	background: linear-gradient(
+  		180deg,
+  		$gray-800 0%,
+  		$gray-900 10.45%,
+  		$gray-900 41.35%
+  	);
+  }
+
+  &::before {
+  	content: '';
+  	width: 80vw;
+  	height: 100vh;
+  	position: absolute;
+  	top: 0;
+  	left: 10vw;
+  	z-index: -1;
+  	background: radial-gradient(
+  		50% 50% at 50% 50%,
+  		$white 0%,
+  		rgba(255, 255, 255, 0) 100%
+  	);
+  	opacity: 0.05;
+  }
+}
+
+
+#svelte {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+p {
+	color: $gray-600;
+  @include dark() {
+    color: $gray-400;
+  }
+
+	line-height: 1.5;
+}
+
+pre {
+	font-size: 16px;
+	font-family: var(--font-mono);
+	@include p(2);
+	overflow-x: auto;
+}
+

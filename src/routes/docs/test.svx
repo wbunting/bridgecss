@@ -1,0 +1,10 @@
+---
+title: My cool counter
+date: 2021-05-20
+summary: A cool counter I made
+---
+
+# {title}
+
+Ever want to increment a number? Now you can!
+
