@@ -25,7 +25,7 @@ Due to a limitation in the way that Vite builds stylesheets you will need to cre
 ```scss
 // src/bridge.scss
 
-@import 'bridgecss/bridge.scss' as *;
+@import 'bridgecss/bridge.scss';
 ```
 
 Then inside your components you can just reference your local style:
