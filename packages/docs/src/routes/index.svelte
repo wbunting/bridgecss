@@ -283,7 +283,7 @@
 	<h3>No more ejecting</h3>
 
 	<p>
-		Wand to use 3D CSS transforms, how about pseudo-elements. With BridgeCSS you can just use those
+		Want to use 3D CSS transforms? how about pseudo-elements? With BridgeCSS you can just use those
 		as you normally would without having to eject from a utility-first framework
 	</p>
 
@@ -348,8 +348,8 @@
 	<h3>Reactivity? Meet data-props</h3>
 
 	<p>
-		Data props are a great way to allow your css to react to changes in the DOM induced by
-		Javascript
+		Data props are a great, framework-independent, way to allow your css to react to changes in the
+		DOM induced by Javascript
 	</p>
 </section>
 

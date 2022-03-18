@@ -36,6 +36,114 @@ Then inside your components you can just reference your local style:
 </style>
 ```
 
+### Next.js
+
+Next.js comes with Sass support built-in. However, the built in styled-jsx does not support Sass out of the box. Therefore you may need to configure it depending on your preferred method of using SCSS in Next.js.
+
+#### Use with scss files / modules
+
+If you want to use Bridge inside of SCSS files and modules you simply need to `@import` it. 
+
+```Home.module.scss
+@import 'bridgecss/bridge.scss';
+
+main {
+  @include px(10);
+  background-color: $slate-200;
+}
+```
+
+### Usage with styled-jsx
+
+You first need to install the extension `@styled-jsx/plugin-sass` which enables sass support in styled-jsx:
+
+```bash
+npm install -D @styled-jsx/plugin-sass
+```
+
+Then you will need to configure babel to be able to properly transpile these scss styles:
+
+```json
+// .babelrc.json
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "styled-jsx": {
+          "plugins": [
+            [
+              "@styled-jsx/plugin-sass",
+              {
+                "sassOptions": {
+                  "includePaths": [
+                    "./styles"
+                  ]
+                }
+              }
+            ]
+          ]
+        }
+      }
+    ]
+  ]
+}
+```
+
+With this it will include paths in the `styles` directory by default. Then, inside of the styles directory we need to create a proxy sass file that reads bridgecss out of `node_modules`:
+
+```scss
+// styles/bridge.scss
+@import '../node_modules/bridgecss/bridge.scss';
+```
+
+Lastly, we can use the styles inside of our styled-jsx blocks like:
+
+```javascript
+export default function Home() {
+  return (
+    <div>
+      <main>
+        <a
+          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Powered by{' '}
+          <span className={styles.logo}>
+            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+          </span>
+        </a>
+      </main>
+      <style jsx>{`
+        @use 'styles/bridge.scss' as *;
+
+        main {
+          display: flex;
+          flex: 1;
+          @include pxy(20, 8);
+          border-top: 1px solid #eaeaea;
+          justify-content: center;
+          align-items: center;
+
+          background-color: $slate-300; 
+        
+          a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+          }
+        }
+      `}
+      </style>
+    </div>
+  )
+}
+```
+
+Note: one limitation of this approach is that we cannot use nested data in mixins. Therefore, things like the `dark()` mixin wont work here nad will need to be specified in a `.scss` module file per the above instructions. 
+
 ## By Manually Vendoring 
 
 Another choice is to vendor the `bridge.scss` file into your project, that is manually copying the file's contents into wherever your project stores scss files. 
