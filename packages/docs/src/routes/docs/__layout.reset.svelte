@@ -66,6 +66,12 @@
 				},
 				{
 					name: 'Animations'
+				},
+				{
+					name: 'State Selectors'
+				},
+				{
+					name: 'Colors'
 				}
 			]
 		},
@@ -77,6 +83,22 @@
 				},
 				{
 					name: 'Margin'
+				}
+			]
+		},
+		{
+			name: 'Typography',
+			pages: [
+				{
+					name: 'Font Size'
+				}
+			]
+		},
+		{
+			name: 'Effects',
+			pages: [
+				{
+					name: 'Shadows'
 				}
 			]
 		}
@@ -121,7 +143,7 @@
 </svelte:head>
 
 <style lang="scss">
-	@use './node_modules/bridgecss/assets/bridge.scss' as *;
+	@use '../../../node_modules/bridgecss/bridge.scss' as *;
 
 	article :global {
 		@include prose;

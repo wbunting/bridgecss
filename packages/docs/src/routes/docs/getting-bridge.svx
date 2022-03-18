@@ -1,3 +1,36 @@
 ## From NPM
 
+You can install the `bridgecss` package from NPM. This package includes the main style file which can be imported like: 
+
+```javascript
+import 'bridgecss/bridge.scss'
+```
+
+There are a few considerations to make before you go and import the file. 
+
+If you import the SASS file into Javascript then you will need to ensure that you have a bundler that can handle loading `.scss` files. Popular frameworks like Next.js, SvelteKit, and Vue come with this baked in, but you may have to manually configure your module bundler to include / load style files. 
+
+A second consideration is using the scss with the `@use` tag inside of another scss file. While in a separate file it should work fine to load with:
+
+```scss
+@use 'bridgecss/bridge.scss' as *;
+```
+
+If you use scoped scss in a framework like SvelteKit you will have to directly grab the file from `node_modules` due to a limitation in the way that scss is bundled with SvelteKit. Eg:
+
+```svelte
+<style lang="scss">
+@use '../node_modules/bridgecss/bridge.scss' as *;
+</style>
+```
+
+where you need to adjust the path to the `node_modules` directory in your project.
+
 ## By Manually Vendoring 
+
+Another choice is to vendor the `bridge.scss` file into your project, that is manually copying the file's contents into wherever your project stores scss files. 
+
+The advantage here is that since the file is no longer coming out of node_modules there will be no issues where you sometimes have to load the file directly from `node_modules` and sometimes don't. In addition, if you vendor the styles it is easier to override / edit things like the predefined colors / spacing scale to suit your needs.  
+
+The disadvantage of this approach is that any updates to BridgeCSS will need to be updated outside of a normal npm package update (alhtough this is not too unusual for styles). 
+

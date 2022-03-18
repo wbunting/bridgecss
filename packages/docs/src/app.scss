@@ -1,5 +1,4 @@
-@use 'src/bridge' as *;
-// @import '@fontsource/fira-mono';
+@use '../../../node_modules/bridgecss/bridge.scss' as *;
 
 body {
 	min-height: 100vh;
