@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/wbunting/bridgecss#readme",
   "workspaces": [
-    "./packages/*"
+    "./packages/*",
+    "!./packages/docs"
   ],
   "dependencies": {
     "bridgecss": "file:packages/bridgecss",
