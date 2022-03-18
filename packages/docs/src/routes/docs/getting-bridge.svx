@@ -16,15 +16,25 @@ A second consideration is using the scss with the `@use` tag inside of another s
 @use 'bridgecss/bridge.scss' as *;
 ```
 
-If you use scoped scss in a framework like SvelteKit you will have to directly grab the file from `node_modules` due to a limitation in the way that scss is bundled with SvelteKit. Eg:
+## Framework Specific
+
+### SvelteKit
+
+Due to a limitation in the way that Vite builds stylesheets you will need to create a local SCSS file to reference the NPM package like:
+
+```scss
+// src/bridge.scss
+
+@import 'bridgecss/bridge.scss' as *;
+```
+
+Then inside your components you can just reference your local style:
 
 ```svelte
 <style lang="scss">
-@use '../node_modules/bridgecss/bridge.scss' as *;
+@use 'src/bridge.scss' as *;
 </style>
 ```
-
-where you need to adjust the path to the `node_modules` directory in your project.
 
 ## By Manually Vendoring 
 
