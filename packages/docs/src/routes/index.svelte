@@ -377,7 +377,7 @@
 </section>
 
 <style lang="scss">
-	@use 'src/bridge' as *;
+	@use '../../../node_modules/bridgecss/bridge.scss' as *;
 
 	section {
 		display: flex;

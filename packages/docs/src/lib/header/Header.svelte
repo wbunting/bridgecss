@@ -35,7 +35,7 @@
 	<nav>
 		<ul>
 			<li>
-				<a sveltekit:prefetch href="/docs/installing-scss">Docs</a>
+				<a sveltekit:prefetch href="/docs/getting-bridge">Docs</a>
 			</li>
 			<li>
 				<a href="https://github.com/wbunting/bridgecss">Github</a>
