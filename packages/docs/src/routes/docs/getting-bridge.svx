@@ -44,7 +44,8 @@ Next.js comes with Sass support built-in. However, the built in styled-jsx does 
 
 If you want to use Bridge inside of SCSS files and modules you simply need to `@import` it. 
 
-```Home.module.scss
+```scss
+// styles/Home.module.scss
 @import 'bridgecss/bridge.scss';
 
 main {
