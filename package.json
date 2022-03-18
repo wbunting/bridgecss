@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "release": "multi-semantic-release --debug"
+    "release": "multi-semantic-release --ignore-packages=packages/docs/**"
   },
   "repository": {
     "type": "git",
