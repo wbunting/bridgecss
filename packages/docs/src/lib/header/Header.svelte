@@ -76,7 +76,7 @@
 </header>
 
 <style lang="scss">
-	@use '../../node_modules/bridgecss/bridge.scss' as *;
+	@use 'src/bridge.scss' as *;
 
 	h1 {
 		font-size: 16pt;

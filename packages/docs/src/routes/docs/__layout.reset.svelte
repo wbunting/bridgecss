@@ -143,7 +143,7 @@
 </svelte:head>
 
 <style lang="scss">
-	@use '../../../node_modules/bridgecss/bridge.scss' as *;
+	@use 'src/bridge.scss' as *;
 
 	article :global {
 		@include prose;
