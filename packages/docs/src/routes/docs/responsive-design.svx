@@ -1,0 +1,63 @@
+Making a design that responds to multiple screen sizes is made much easier by BridgeCSS thanks to specific mixins to target different device sizes. 
+
+There are three defined device sizes
+
+- desktop: min-width: 1024px;
+- tablet:  min-width: 768px;
+- mobile: min-width: 320px;
+
+So to target a set of devices you can write a style like:
+
+
+```scss
+img {
+  width: 16px;
+
+  @include tablet {
+    width: 20px;
+  }
+  
+  @include desktop {
+    width: 30px;
+  }
+}
+```
+
+The nice aspect of this compared to the utility-first style is that you can group all your tablet styles in a single place without having to prefix all of them individually with the size.
+
+Here is an example of how you can dynamically adjust the layout depending on the screen size. (grab the handle on the right size to resize)
+
+*** Example ***
+
+```svelte
+<div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+  <div class="md:flex">
+    <div class="md:shrink-0">
+      <img class="h-48 w-full object-cover md:h-full md:w-48" src="/img/store.jpg" alt="Man looking at item at a store">
+    </div>
+    <div class="p-8">
+      <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
+      <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers for your new business</a>
+      <p class="mt-2 text-slate-500">Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+div {
+    div {
+        .photo {
+
+          }
+
+        .caption {
+
+        }
+    }
+}
+</style>
+```
+
+## Mobile First
+
+Since the breakpoints are defined with `min-width` BridgeCSS is naturally mobile first. Eg. using the `@include tablet` selector will then only apply above a certain width. 

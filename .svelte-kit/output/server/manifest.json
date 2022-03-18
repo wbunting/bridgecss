@@ -1,0 +1,189 @@
+{
+  ".svelte-kit/build/index.js": {
+    "file": "index.js",
+    "src": ".svelte-kit/build/index.js",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js"
+    ],
+    "dynamicImports": [
+      "src/hooks.ts"
+    ]
+  },
+  "src/routes/todos/index.ts": {
+    "file": "entries/endpoints/todos/index.ts.js",
+    "src": "src/routes/todos/index.ts",
+    "isEntry": true
+  },
+  "src/routes/__layout.svelte": {
+    "file": "entries/pages/__layout.svelte.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js",
+      "_resets-efca1b8b.js"
+    ],
+    "css": [
+      "assets/entries/pages/__layout.svelte-1c1ec629.css"
+    ]
+  },
+  ".svelte-kit/runtime/components/error.svelte": {
+    "file": "entries/fallbacks/error.svelte.js",
+    "src": ".svelte-kit/runtime/components/error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "entries/pages/index.svelte.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js"
+    ],
+    "css": [
+      "assets/entries/pages/index.svelte-43b619e3.css"
+    ]
+  },
+  "src/routes/todos/index.svelte": {
+    "file": "entries/pages/todos/index.svelte.js",
+    "src": "src/routes/todos/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js"
+    ],
+    "css": [
+      "assets/entries/pages/todos/index.svelte-02327cf1.css"
+    ]
+  },
+  "src/routes/docs/__layout.reset.svelte": {
+    "file": "entries/pages/docs/__layout.reset.svelte.js",
+    "src": "src/routes/docs/__layout.reset.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js",
+      "_resets-efca1b8b.js"
+    ],
+    "css": [
+      "assets/entries/pages/docs/__layout.reset.svelte-8abcf860.css"
+    ]
+  },
+  "src/routes/docs/responsive-design.svelte": {
+    "file": "entries/pages/docs/responsive-design.svelte.js",
+    "src": "src/routes/docs/responsive-design.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js",
+      "_env-14926626.js"
+    ]
+  },
+  "src/routes/docs/installing-scss.svelte": {
+    "file": "entries/pages/docs/installing-scss.svelte.js",
+    "src": "src/routes/docs/installing-scss.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js",
+      "_env-14926626.js"
+    ]
+  },
+  "src/routes/docs/pseudo-elements.svelte": {
+    "file": "entries/pages/docs/pseudo-elements.svelte.js",
+    "src": "src/routes/docs/pseudo-elements.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js",
+      "_env-14926626.js"
+    ]
+  },
+  "src/routes/docs/getting-bridge.svx": {
+    "file": "entries/pages/docs/getting-bridge.svx.js",
+    "src": "src/routes/docs/getting-bridge.svx",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js"
+    ]
+  },
+  "src/routes/docs/animations.svelte": {
+    "file": "entries/pages/docs/animations.svelte.js",
+    "src": "src/routes/docs/animations.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js",
+      "_env-14926626.js"
+    ]
+  },
+  "src/routes/docs/dark-mode.svx": {
+    "file": "entries/pages/docs/dark-mode.svx.js",
+    "src": "src/routes/docs/dark-mode.svx",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js"
+    ]
+  },
+  "src/routes/docs/upgrading.svx": {
+    "file": "entries/pages/docs/upgrading.svx.js",
+    "src": "src/routes/docs/upgrading.svx",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js"
+    ],
+    "css": [
+      "assets/entries/pages/docs/upgrading.svx-9553a035.css"
+    ]
+  },
+  "src/routes/docs/padding.svx": {
+    "file": "entries/pages/docs/padding.svx.js",
+    "src": "src/routes/docs/padding.svx",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js"
+    ]
+  },
+  "src/routes/docs/spacing.svelte": {
+    "file": "entries/pages/docs/spacing.svelte.js",
+    "src": "src/routes/docs/spacing.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js",
+      "_env-14926626.js"
+    ]
+  },
+  "src/routes/docs/margin.svelte": {
+    "file": "entries/pages/docs/margin.svelte.js",
+    "src": "src/routes/docs/margin.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js",
+      "_env-14926626.js"
+    ]
+  },
+  "src/routes/docs/test.svx": {
+    "file": "entries/pages/docs/test.svx.js",
+    "src": "src/routes/docs/test.svx",
+    "isEntry": true,
+    "imports": [
+      "_index-0a196191.js"
+    ]
+  },
+  "_index-0a196191.js": {
+    "file": "chunks/index-0a196191.js"
+  },
+  "_resets-efca1b8b.js": {
+    "file": "chunks/resets-efca1b8b.js",
+    "imports": [
+      "_index-0a196191.js"
+    ],
+    "css": [
+      "assets/resets-f7fc5005.css"
+    ]
+  },
+  "_env-14926626.js": {
+    "file": "chunks/env-14926626.js"
+  },
+  "src/hooks.ts": {
+    "file": "chunks/hooks-87fb94fd.js",
+    "src": "src/hooks.ts",
+    "isDynamicEntry": true
+  }
+}

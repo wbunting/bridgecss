@@ -1,0 +1,224 @@
+{
+  ".svelte-kit/runtime/client/start.js": {
+    "file": "start-d7b6dc1c.js",
+    "src": ".svelte-kit/runtime/client/start.js",
+    "isEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js",
+      "_singletons-d1fb5791.js"
+    ],
+    "dynamicImports": [
+      "src/routes/__layout.svelte",
+      ".svelte-kit/runtime/components/error.svelte",
+      "src/routes/index.svelte",
+      "src/routes/todos/index.svelte",
+      "src/routes/docs/__layout.reset.svelte",
+      "src/routes/docs/responsive-design.svelte",
+      "src/routes/docs/installing-scss.svelte",
+      "src/routes/docs/pseudo-elements.svelte",
+      "src/routes/docs/getting-bridge.svx",
+      "src/routes/docs/animations.svelte",
+      "src/routes/docs/dark-mode.svx",
+      "src/routes/docs/upgrading.svx",
+      "src/routes/docs/padding.svx",
+      "src/routes/docs/spacing.svelte",
+      "src/routes/docs/margin.svelte",
+      "src/routes/docs/test.svx"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "pages/__layout.svelte-6920eb40.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js",
+      "_resets-57279b5f.js"
+    ],
+    "css": [
+      "assets/pages/__layout.svelte-7d325e1c.css"
+    ]
+  },
+  ".svelte-kit/runtime/components/error.svelte": {
+    "file": "error.svelte-baadf626.js",
+    "src": ".svelte-kit/runtime/components/error.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "pages/index.svelte-57a587d2.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js"
+    ],
+    "css": [
+      "assets/pages/index.svelte-4facf967.css"
+    ]
+  },
+  "src/routes/todos/index.svelte": {
+    "file": "pages/todos/index.svelte-be3dfa61.js",
+    "src": "src/routes/todos/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js",
+      "_navigation-2d3746ee.js",
+      "_singletons-d1fb5791.js"
+    ],
+    "css": [
+      "assets/pages/todos/index.svelte-a910a02d.css"
+    ]
+  },
+  "src/routes/docs/__layout.reset.svelte": {
+    "file": "pages/docs/__layout.reset.svelte-76f9f82c.js",
+    "src": "src/routes/docs/__layout.reset.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js",
+      "_navigation-2d3746ee.js",
+      "_resets-57279b5f.js",
+      "_singletons-d1fb5791.js"
+    ],
+    "css": [
+      "assets/pages/docs/__layout.reset.svelte-e1224371.css"
+    ]
+  },
+  "src/routes/docs/responsive-design.svelte": {
+    "file": "pages/docs/responsive-design.svelte-198d204f.js",
+    "src": "src/routes/docs/responsive-design.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js",
+      "_env-859c48a7.js"
+    ]
+  },
+  "src/routes/docs/installing-scss.svelte": {
+    "file": "pages/docs/installing-scss.svelte-368e8582.js",
+    "src": "src/routes/docs/installing-scss.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js",
+      "_env-859c48a7.js"
+    ]
+  },
+  "src/routes/docs/pseudo-elements.svelte": {
+    "file": "pages/docs/pseudo-elements.svelte-1ef656a4.js",
+    "src": "src/routes/docs/pseudo-elements.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js",
+      "_env-859c48a7.js"
+    ]
+  },
+  "src/routes/docs/getting-bridge.svx": {
+    "file": "pages/docs/getting-bridge.svx-44c47ac9.js",
+    "src": "src/routes/docs/getting-bridge.svx",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js"
+    ]
+  },
+  "src/routes/docs/animations.svelte": {
+    "file": "pages/docs/animations.svelte-7d97e895.js",
+    "src": "src/routes/docs/animations.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js",
+      "_env-859c48a7.js"
+    ]
+  },
+  "src/routes/docs/dark-mode.svx": {
+    "file": "pages/docs/dark-mode.svx-1d9814b9.js",
+    "src": "src/routes/docs/dark-mode.svx",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js"
+    ]
+  },
+  "src/routes/docs/upgrading.svx": {
+    "file": "pages/docs/upgrading.svx-45adde8b.js",
+    "src": "src/routes/docs/upgrading.svx",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js"
+    ],
+    "css": [
+      "assets/pages/docs/upgrading.svx-50628b32.css"
+    ]
+  },
+  "src/routes/docs/padding.svx": {
+    "file": "pages/docs/padding.svx-e95155d5.js",
+    "src": "src/routes/docs/padding.svx",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js"
+    ]
+  },
+  "src/routes/docs/spacing.svelte": {
+    "file": "pages/docs/spacing.svelte-75fdfee5.js",
+    "src": "src/routes/docs/spacing.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js",
+      "_env-859c48a7.js"
+    ]
+  },
+  "src/routes/docs/margin.svelte": {
+    "file": "pages/docs/margin.svelte-bfa64354.js",
+    "src": "src/routes/docs/margin.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js",
+      "_env-859c48a7.js"
+    ]
+  },
+  "src/routes/docs/test.svx": {
+    "file": "pages/docs/test.svx-159c6cab.js",
+    "src": "src/routes/docs/test.svx",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-c6709e0e.js"
+    ]
+  },
+  "_vendor-c6709e0e.js": {
+    "file": "chunks/vendor-c6709e0e.js"
+  },
+  "_singletons-d1fb5791.js": {
+    "file": "chunks/singletons-d1fb5791.js"
+  },
+  "_resets-57279b5f.js": {
+    "file": "chunks/resets-57279b5f.js",
+    "imports": [
+      "_vendor-c6709e0e.js"
+    ],
+    "css": [
+      "assets/resets-328e1b5d.css"
+    ]
+  },
+  "_navigation-2d3746ee.js": {
+    "file": "chunks/navigation-2d3746ee.js",
+    "imports": [
+      "_singletons-d1fb5791.js"
+    ]
+  },
+  "_env-859c48a7.js": {
+    "file": "chunks/env-859c48a7.js"
+  }
+}
