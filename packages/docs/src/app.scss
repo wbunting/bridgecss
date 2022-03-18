@@ -1,4 +1,4 @@
-@use '../../../node_modules/bridgecss/bridge.scss' as *;
+@use 'src/bridge.scss' as *;
 
 body {
 	min-height: 100vh;

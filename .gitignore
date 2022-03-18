@@ -8,3 +8,4 @@ packages/docs/package
 !.env.example
 .vercel
 .output
+.svelte-kit
