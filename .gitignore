@@ -9,3 +9,4 @@ packages/docs/package
 .vercel
 .output
 .svelte-kit
+.next

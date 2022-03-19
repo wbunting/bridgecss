@@ -191,11 +191,30 @@
 							@include pl(4);
 							color: $slate-400;
 							transition: color 0.2s linear;
+							position: relative;
+							clip-path: polygon(-1px -1px, 100% 0, 100% 100%, -10% 110%);
+
+							&:after {
+								position: absolute;
+								content: '';
+								border-left: 1px solid $slate-500;
+								border-radius: 1em;
+								left: -1px;
+								transition: transform 0.2s cubic-bezier(0.77, 0, 0.175, 1);
+							}
+
+							&:after {
+								height: 100%;
+								top: 0em;
+								transform: translateY(300%);
+							}
 
 							&:hover {
 								color: $slate-300;
-								margin-left: -1px;
-								border-left: 1px solid $slate-500;
+
+								&:after {
+									transform: translateY(0);
+								}
 							}
 						}
 
