@@ -192,7 +192,7 @@
 							color: $slate-400;
 							transition: color 0.2s linear;
 							position: relative;
-							clip-path: polygon(-1px -1px, 100% 0, 100% 100%, -10% 200%);
+							clip-path: polygon(-1px -1px, 100% 0, 120% 120%, -10% 200%);
 
 							&:after {
 								position: absolute;
