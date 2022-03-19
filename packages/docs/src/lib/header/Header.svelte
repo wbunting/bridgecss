@@ -179,7 +179,6 @@
 			display: flex;
 			height: 100%;
 			align-items: center;
-			padding: 0 1em;
 			color: $gray-400;
 			font-weight: 700;
 			font-size: 0.8rem;
@@ -187,9 +186,40 @@
 			letter-spacing: 0.1em;
 			text-decoration: none;
 			transition: color 0.2s linear;
+			position: relative;
+			clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+			&:before,
+			&:after {
+				position: absolute;
+				content: '';
+				border-bottom: 2px solid $blue-300;
+				border-radius: 1em;
+				bottom: 1em;
+				transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+			}
+
+			&:before {
+				width: 1em;
+				transform-origin: left;
+			}
+
+			&:after {
+				width: 82%;
+				left: 1em;
+				transform: translateX(110%);
+			}
 
 			&:hover {
 				color: $gray-300;
+
+				&:before {
+					transform: scaleX(0.3);
+				}
+
+				&:after {
+					transform: translateX(0);
+				}
 			}
 		}
 	}
@@ -209,6 +239,7 @@
 		align-items: center;
 		list-style: none;
 		background-size: contain;
+		@include space-x(10);
 
 		li {
 			position: relative;

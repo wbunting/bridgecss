@@ -399,7 +399,7 @@
 			@include mt(5);
 			text-transform: uppercase;
 			font-weight: 700;
-			color: $gray-300;
+			color: $orange-100;
 		}
 
 		div {

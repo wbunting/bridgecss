@@ -54,7 +54,7 @@ main {
 }
 ```
 
-### Usage with styled-jsx
+#### Usage with styled-jsx
 
 You first need to install the extension `@styled-jsx/plugin-sass` which enables sass support in styled-jsx:
 

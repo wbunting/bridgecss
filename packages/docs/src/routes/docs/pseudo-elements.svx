@@ -1,1 +1,79 @@
-How to use pseudo-elements for cool effects
+One big advantage of using BridgeCSS is that since it is just normal SCSS it is very easy to create effects using pseudo elements. 
+
+Here we will give a few examples of common ways to use pseudo elements for cool effects on your site.
+
+## Popup menu arrow
+
+```scss
+.arrow {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 0px;
+
+    &::after {
+      content: " ";
+      position: absolute;
+      top: -4px; 
+      left: 0;
+      transform: rotate(45deg);
+      width: 10px;
+      height: 10px;
+      background-color: $gray-300;
+      box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    }
+}
+```
+
+<div class="wrapper">
+  <div class="menu">
+    <div class="py-3">
+      <button
+        class="flex items-center w-full py-2 transition duration-150 ease-in-out hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
+      >
+        <div class="ml-4">
+          <p class="text-sm font-medium text-gray-900">
+            Logout
+          </p>
+        </div>
+      </button>
+    </div>
+  </div>
+  <div class="arrow" />
+</div>
+
+<style lang="scss">
+@use 'src/bridge.scss' as *;
+
+.wrapper {
+    position: relative;
+}
+
+.menu {
+    height: 80px;
+    width: 200px;
+    background-color: $gray-300;
+}
+
+.arrow {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 0px;
+
+    &::after {
+      content: " ";
+      position: absolute;
+      top: -4px; 
+      left: 180px;
+      transform: rotate(45deg);
+      width: 10px;
+      height: 10px;
+      background-color: $gray-300;
+      box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+    }
+}
+</style>
+
+## Animated underline
+
