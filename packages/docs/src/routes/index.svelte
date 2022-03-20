@@ -1,5 +1,8 @@
 <script context="module" lang="ts">
 	export const prerender = true;
+	import Scale from '$lib/icons/Scale.svelte';
+	import Color from '$lib/icons/Color.svelte';
+	import Typography from '$lib/icons/Typography.svelte';
 </script>
 
 <svelte:head>
@@ -260,9 +263,18 @@
 	</p>
 
 	<div>
-		<div>Spacing</div>
-		<div>Color Palette</div>
-		<div>Fonts</div>
+		<div>
+			<span>Spacing</span>
+			<Scale />
+		</div>
+		<div>
+			<span>Color Palette</span>
+			<Color />
+		</div>
+		<div>
+			<span>Fonts</span>
+			<Typography />
+		</div>
 	</div>
 </section>
 
