@@ -469,7 +469,8 @@
 		transform-style: preserve-3d;
 		box-shadow: 0 0 1em #000;
 		transform: rotateX(var(--rotate-x, 0turn)) rotateY(var(--rotate-y, 0turn));
-		animation: rotate-card 1s ease-in-out;
+		animation: rotate-card 3s ease-in-out;
+		animation-iteration-count: infinite;
 		animation-fill-mode: forwards;
 
 		.window {
@@ -549,9 +550,13 @@
 			--rotate-x: 0turn;
 			--rotate-y: 0turn;
 		}
+		50% {
+			--rotate-y: -0.01turn;
+			--rotate-x: -0.01turn;
+		}
 		to {
-			--rotate-y: -0.03turn;
-			--rotate-x: -0.03turn;
+			--rotate-y: 0turn;
+			--rotate-x: 0turn;
 		}
 	}
 

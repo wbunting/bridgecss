@@ -108,7 +108,7 @@
 				<a href="https://github.com/wbunting/bridgecss">Github</a>
 			</li>
 			<li>
-				<button on:click={handleToggleDark}>
+				<button class="dark-mode-toggle" on:click={handleToggleDark}>
 					{#if mode === 'dark'}
 						<svg
 							fill="none"
@@ -222,6 +222,11 @@
 				}
 			}
 		}
+	}
+
+	.dark-mode-toggle {
+		display: flex;
+		align-items: center;
 	}
 
 	svg {
