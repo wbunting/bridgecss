@@ -3,6 +3,36 @@
 	import Scale from '$lib/icons/Scale.svelte';
 	import Color from '$lib/icons/Color.svelte';
 	import Typography from '$lib/icons/Typography.svelte';
+
+	import { compile } from 'mdsvex/dist/browser-umd';
+	import '../app.scss';
+	import '../resets.scss';
+
+	export async function load() {
+		const transformedCode = await compile(
+			`
+\`\`\`scss-diff
+-  @variants hover, focus {
++  @layer utilities {
+     .content-auto {
+       content-visibility: auto;
+     }
+   }
+\`\`\`
+`,
+			{}
+		).then((x: any) =>
+			x.code
+				.replace(/>{@html `<code class="language-/g, '><code class="language-')
+				.replace(/<\/code>`}<\/pre>/g, '</code></pre>')
+		);
+
+		return { props: { transformedCode } };
+	}
+</script>
+
+<script>
+	export let transformedCode;
 </script>
 
 <svelte:head>
@@ -352,6 +382,10 @@
 	<h3>Great looking git diffs</h3>
 
 	<p>Since each style gets it's own line changes are easy to review.</p>
+
+	{#if transformedCode}
+		{@html transformedCode}
+	{/if}
 </section>
 
 <section class="feature">
