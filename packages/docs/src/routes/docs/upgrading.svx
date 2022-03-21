@@ -1,6 +1,0 @@
-How to ugrade BridgeCSS
-
-## Manually by vendoring the styles 
-
-## Using the NPM package
-

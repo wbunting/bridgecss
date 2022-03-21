@@ -1,1 +1,41 @@
-How to install scss into your project
+In order to use Sass/Scss you need some part of your project to compile those kinds of files down to vanilla css. In most Javascript application frameworks this can be done by installing the `sass` npm package and then compilation will be handled by the bundler (eg webpack, parcel, vite etc.). Here we will outline the procedure for a few common frameworks for convienience, but please refer to the individual documentation of those frameworks for up-to-date installation instructions.
+
+## Next.js
+
+All you have to do in order to enable SCSS support in Next.js is install the `sass` package as a development dependency, eg:
+
+```
+npm install --save-dev sass
+```
+
+This will enable files to be imported with the `.sass` or `.scss` extensions.
+
+If you want global styles you should import them into the `pages/_app.js` module. 
+
+## SvelteKit
+
+
+
+## Create React App
+
+For Create React App you should install the `sass` package as a production dependency
+
+```
+npm install sass
+```
+
+After that you should be able to use `.scss` files in place of `.css` files and they will be transpiled automatically by the built-in webpack configuration.
+
+## Vanilla html + css
+
+You need to get the `sass` binary (from dart-sass) somehow. If you don't mind using npm you can create a `package.json` and install the `sass` library. Then you will have access to the `sass` binary and can write a npm package script like:
+
+```json
+{
+    "scripts": {
+        "scss": "sass --watch scss -o css"
+    }
+}
+```
+
+This script will compile all `.sass` and `.scss` files in the `scss` directory into pure css in the `css` directory. In this way you do use javascript to compile the styles in the build step, but never actually necessarily ship any javascript to production as the result of compilation is simple css. 

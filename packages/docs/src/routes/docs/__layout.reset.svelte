@@ -46,9 +46,6 @@
 				},
 				{
 					name: 'Installing SCSS'
-				},
-				{
-					name: 'Upgrading'
 				}
 			]
 		},

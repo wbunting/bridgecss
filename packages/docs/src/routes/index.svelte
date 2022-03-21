@@ -46,7 +46,9 @@
 		A sane set of SCSS presets and mixins for rapid development of websites and web applications.
 	</p>
 
-	<button>Get Started</button>
+	<a sveltekit:prefetch href="/docs/getting-bridge">
+		<button>Get Started</button>
+	</a>
 </section>
 
 <section class="hero">
