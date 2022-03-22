@@ -1,7 +1,8 @@
 <script lang="ts">
 	import Header from '$lib/header/Header.svelte';
-	import '../app.scss';
+
 	import '../resets.scss';
+	import '../app.scss';
 	import '../prism.scss';
 </script>
 

@@ -3,14 +3,22 @@
 body {
 	min-height: 100vh;
 	margin: 0;
+    
+  color: $gray-900;
+  background: linear-gradient(
+  		180deg,
+  		$slate-100 0%,
+  		$slate-200 10.45%,
+  		$slate-200 41.35%
+  	);
  
-  @include dark() {
+  @include dark {
     color: $gray-200;
   	background: linear-gradient(
   		180deg,
-  		$gray-800 0%,
-  		$gray-900 10.45%,
-  		$gray-900 41.35%
+  		$slate-700 0%,
+  		$slate-900 10.45%,
+  		$slate-900 41.35%
   	);
   }
 
