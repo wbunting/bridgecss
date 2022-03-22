@@ -1,6 +1,7 @@
 <script context="module" lang="ts">
 	export const prerender = true;
 	import Constrained from '$lib/home/Constrained.svelte';
+	import BatteriesIncluded from '$lib/home/BatteriesIncluded.svelte';
 	import FeatureCode from '$lib/home/FeatureCode.svx';
 	import FeatureCodeStyle from '$lib/home/FeatureCodeStyle.svx';
 
@@ -13,6 +14,11 @@
 
 <script lang="ts">
 	let featureTab = 'style';
+ let isDataPropsActive = false;
+
+ const handleDataPropsClick = () => {
+	 isDataPropsActive = !isDataPropsActive;
+ }
 
 	const handleTabChange = (next: string) => {
 		featureTab = next;
@@ -127,11 +133,7 @@
 		as you normally would without having to eject from a utility-first framework
 	</p>
 
-	<div>
-		<div>Complex Animations</div>
-		<div>3D Effects</div>
-		<div>Pseudo Elements</div>
-	</div>
+	<BatteriesIncluded />
 </section>
 
 <section class="feature">
@@ -194,7 +196,18 @@
 		DOM induced by Javascript
 	</p>
 
-	<DataProps />
+	<div class="side-by-side">
+		<DataProps />
+        <div>
+			<button class="data-props" data-active={isDataPropsActive} on:click={handleDataPropsClick}>
+				{#if isDataPropsActive}
+					Click Me
+				{:else}
+					Active
+				{/if}
+			</button>
+       </div>
+	</div>
 </section>
 
 <section class="feature">
@@ -207,10 +220,7 @@
 		almost irrelevant
 	</p>
 
-	<div>
-		<div>SvelteKit</div>
-		<ScopedSCSS />
-	</div>
+	<ScopedSCSS />
 </section>
 
 <section class="topic-list">
@@ -452,4 +462,13 @@
 		@include text-2xl;
 		@include leading(3);
 	}
+
+
+  button.data-props {
+    background-color: $gray-700;
+
+    &[data-active="true"] {
+      background-color: $gray-800;
+    }
+  }
 </style>

@@ -6,15 +6,15 @@
 </form>
 
 <style lang="scss">
-form {
-    label {
-  
-    }
-  
-    input {
-  
-    }
-}
+  form {
+      label {
+
+      }
+
+      input {
+
+      }
+  }
 </style>
 ```
 

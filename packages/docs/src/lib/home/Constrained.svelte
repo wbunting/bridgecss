@@ -1,12 +1,11 @@
 <script>
-	import Color from '$lib/icons/Color.svelte';
-	import Scale from '$lib/icons/Scale.svelte';
-
-	import Typography from '$lib/icons/Typography.svelte';
+    import ColorDark from '$lib/icons/ColorsDark.svelte';
+	import Scale from '$lib/icons/SpacingDark.svelte';
+	import Typography from '$lib/icons/TypographyDark.svelte';
 
 	import Spacing from './Spacing.svx';
 	import ColorPalette from './ColorPalette.svx';
-	import Fonts from './Fonts.svx';
+    import Fonts from './Fonts.svx';
 
 	let active = 'spacing';
 
@@ -18,15 +17,12 @@
 <div>
 	<div class="selector">
 		<button on:click={() => handleClick('spacing')} data-active={'spacing' === active}>
-			<span>Spacing</span>
 			<Scale />
 		</button>
 		<button on:click={() => handleClick('colors')} data-active={'colors' === active}>
-			<span>Color Palette</span>
-			<Color />
+			<ColorDark />
 		</button>
 		<button on:click={() => handleClick('typography')} data-active={'typography' === active}>
-			<span>Fonts</span>
 			<Typography />
 		</button>
 	</div>
@@ -53,17 +49,12 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			span {
-				text-transform: uppercase;
-				@include text-sm;
-				font-weight: 600;
-				padding-bottom: spacing(2);
-			}
+			border-radius: 28px;
+			padding: 0;
+		    border: 2px solid $slate-500;
 
 			&[data-active='true'] {
-				span {
-					color: $blue-400;
-				}
+				border: 2px solid $blue-500;
 			}
 		}
 	}
