@@ -1,0 +1,11 @@
+```scss
+.selector {
+  color: $gray-700
+  background-color: $slate-200
+
+  @include dark() {
+    color: $gray-200
+    background-color: $slate-800
+  }
+}
+```

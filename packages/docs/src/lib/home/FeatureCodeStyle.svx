@@ -1,0 +1,35 @@
+```scss 
+  img {
+    width: spacing(24);
+    height: spacing(24);
+    border-radius: 9999px;
+
+    @include tablet {
+      width: spacing(48);
+      height: auto;
+      border-radius: none;
+    }
+  }
+
+  blockquote {
+    @include text-lg;
+  }
+
+  figcaption {
+    .author {
+      color: $sky-500;
+
+      @include dark() {
+        color: $sky-400;
+      }
+    }
+
+    .title {
+      color: $slate-700;
+
+      @include dark() {
+        color: $slate-500;
+      }
+    }
+  }
+```

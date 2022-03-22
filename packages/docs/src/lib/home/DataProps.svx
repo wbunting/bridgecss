@@ -1,0 +1,16 @@
+```svelte
+<div>
+  <button data-active={isActive} onClick={handleClick} />
+</div>
+
+
+<style lang="scss">
+button {
+  background-color: $gray-200;
+
+  &[data-active="true"] {
+    background-color: $gray-300;
+  }
+}
+</style>
+```

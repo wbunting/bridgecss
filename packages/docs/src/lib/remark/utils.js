@@ -1,20 +1,107 @@
-import adapter from '@sveltejs/adapter-auto';
-import preprocess from 'svelte-preprocess';
-import { mdsvex } from 'mdsvex';
 import Prism from 'prismjs';
 import redent from 'redent';
+// import loadLanguages from 'prismjs/components/index'
 
-import "prismjs/components/prism-markdown.js";
-import "prismjs/components/prism-bash.js";
-import "prismjs/components/prism-jsx.js";
-import "prismjs/components/prism-yaml.js";
-import "prismjs/components/prism-scss.js";
-import "prismjs/components/prism-css.js";
-import "prismjs/components/prism-toml.js";
-import "prismjs/components/prism-json.js";
+// loadLanguages()
 
-import "prism-svelte";
+const HTML_TAG =
+  /<\/?(?!\d)[^\s>\/=$<%]+(?:\s(?:\s*[^\s>\/=]+(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s'">=]+(?=[\s>]))|(?=[\s/>])))+)?\s*\/?>/gi
+const PSEUDO_CLASSES = [
+  'active',
+  'any-link',
+  'blank',
+  'checked',
+  'current',
+  'default',
+  'defined',
+  'dir',
+  'disabled',
+  'drop',
+  'empty',
+  'enabled',
+  'first',
+  'first-child',
+  'first-of-type',
+  'fullscreen',
+  'future',
+  'focus',
+  'focus-visible',
+  'focus-within',
+  'has',
+  'host',
+  'host',
+  'host-context',
+  'hover',
+  'indeterminate',
+  'in-range',
+  'invalid',
+  'is',
+  'lang',
+  'last-child',
+  'last-of-type',
+  'left',
+  'link',
+  'local-link',
+  'not',
+  'nth-child',
+  'nth-col',
+  'nth-last-child',
+  'nth-last-col',
+  'nth-last-of-type',
+  'nth-of-type',
+  'only-child',
+  'only-of-type',
+  'optional',
+  'out-of-range',
+  'past',
+  'picture-in-picture',
+  'placeholder-shown',
+  'read-only',
+  'read-write',
+  'required',
+  'right',
+  'root',
+  'scope',
+  'state',
+  'target',
+  'target-within',
+  'user-invalid',
+  'valid',
+  'visited',
+  'where',
+]
 
+Prism.hooks.add('wrap', (env) => {
+  if (env.type === 'atrule') {
+    const content = env.content.replace(HTML_TAG, '')
+    if (content.startsWith('@apply')) {
+      env.classes.push('atapply')
+    }
+  } else if (env.type === 'pseudo-class') {
+    if (!new RegExp(`^::?(${PSEUDO_CLASSES.join('|')})`).test(env.content)) {
+      env.classes = env.classes.filter((x) => x !== 'pseudo-class')
+    }
+  }
+})
+
+Prism.hooks.add('after-tokenize', ({ language, tokens }) => {
+  if (language === 'css') {
+    fixSelectorEscapeTokens(tokens)
+  }
+})
+
+export function fixSelectorEscapeTokens(tokens) {
+  for (let token of tokens) {
+    if (typeof token === 'string') continue
+    if (token.type !== 'selector') continue
+    for (let i = 0; i < token.content.length; i++) {
+      if (token.content[i] === '\\' && token.content[i - 1]?.type === 'class') {
+        token.content[i] = new Prism.Token('punctuation', token.content[i])
+        token.content[i + 1].type = 'class'
+      }
+    }
+  }
+}
 
 function hasLineHighlights(code) {
   if (!/^>/m.test(code)) {
@@ -26,7 +113,6 @@ function hasLineHighlights(code) {
 export const highlightCode = (code, prismLanguage) => {
   const isDiff = prismLanguage.startsWith('diff-')
   const language = isDiff ? prismLanguage.substr(5) : prismLanguage
-
   const grammar = Prism.languages[language]
   if (!grammar) {
     console.warn(`Unrecognised language: ${prismLanguage}`)
@@ -249,54 +335,3 @@ export const simplifyToken = (token) => {
   ]
 }
 
-const withSyntaxHighlighting = () => {
-  return (tree) => {
-    let preTree = { children: [] }
-    tree.children = tree.children.flatMap((node) => {
-      if (node.type !== 'code') return node
-      if (node.lang === null) return node
-
-      // we also replace tokens that can't be rendered in HTML like curly brace
-      const highlightedCode =
-        highlightCode(node.value, node.lang).replace(/[{}]/g, c => ({ "{": "&#123;", "}": "&#125;" }[c]));
-
-      node.type = 'html'
-      node.value = [
-        `<pre class="language-${node.lang}">`,
-        `<code class="language-${node.lang}">`,
-        highlightedCode,
-        '</code>',
-        '</pre>',
-      ]
-        .filter(Boolean)
-        .join('')
-
-      return node
-    })
-    tree.children = [...preTree.children, ...tree.children]
-  }
-}
-
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
-  // Consult https://github.com/sveltejs/svelte-preprocess
-  // for more information about preprocessors
-  preprocess: [mdsvex({
-    remarkPlugins: [
-      withSyntaxHighlighting
-    ]
-  }), preprocess()],
-
-  extensions: [".svelte", ".svx"],
-
-  kit: {
-    adapter: adapter(),
-
-    // Override http methods in the Todo forms
-    methodOverride: {
-      allowed: ['PATCH', 'DELETE']
-    }
-  }
-};
-
-export default config;

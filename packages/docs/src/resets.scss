@@ -125,7 +125,6 @@ pre {
 		'Liberation Mono',
 		Menlo,
 		monospace; /* 1 */
-	font-size: 1em; /* 2 */
 }
 
 /**
@@ -212,6 +211,7 @@ button,
 	-webkit-appearance: button;
   color: inherit;
   background-color: inherit;
+  cursor: pointer;
 }
 
 /**

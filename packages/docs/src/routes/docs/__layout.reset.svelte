@@ -7,6 +7,7 @@
 
 	import Header from '$lib/header/Header.svelte';
 
+	import '../../docs.scss';
 	import '../../app.scss';
 	import '../../resets.scss';
 

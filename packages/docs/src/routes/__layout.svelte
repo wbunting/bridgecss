@@ -2,7 +2,7 @@
 	import Header from '$lib/header/Header.svelte';
 	import '../app.scss';
 	import '../resets.scss';
-	import '../prism.css';
+	import '../prism.scss';
 </script>
 
 <Header />

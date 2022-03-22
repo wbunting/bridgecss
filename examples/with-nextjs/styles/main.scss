@@ -1,0 +1,6 @@
+@import 'bridgecss/bridge.scss';
+
+main {
+  @include px(10);
+  background-color: $slate-200;
+}

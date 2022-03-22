@@ -1,0 +1,16 @@
+```diff-scss
+  .foo {
+-    @include space-x(4);
++    @include space-x(3);
+
+     background-color: $slate-500;
+
+-    color: $teal-400;
++    color: $teal-500;
+  }
+```
+
+```diff-html
++ <div class="space-x-3 bg-slate-500 text-teal-500">
+- <div class="space-x-4 bg-slate-500 text-teal-400">
+```

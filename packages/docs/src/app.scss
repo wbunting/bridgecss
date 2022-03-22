@@ -1,5 +1,4 @@
 @use 'src/bridge.scss' as *;
-@import '@fontsource/fira-mono';
 
 body {
 	min-height: 100vh;
@@ -32,22 +31,6 @@ body {
   }
 }
 
-
-code {
-	font-size: em(14, 16);
-	color: $white;
-	font-family: 'Fira Code VF,ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace';
-
-	font-weight: 600;
-
-	&:before {
-		content: '`';
-	}
-	&:after {
-		content: '`';
-	}
-}
-
 pre {
   font-size: em(14, 14);
   line-height: calc(20 / 12);
@@ -58,6 +41,9 @@ pre {
   padding-right: em(12, 12);
   padding-bottom: em(8, 12);
   padding-left: em(12, 12);
+	font-size: 16px;
+	@include p(2);
+	overflow-x: auto;
 
   border-radius: 0.75rem;
   padding: 1.25rem;
@@ -75,27 +61,12 @@ pre {
   }
 }
 
-
-#svelte {
-	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
-}
-
-p {
-	color: $gray-600;
-  @include dark() {
-    color: $gray-400;
+.window-content {
+  > pre {
+    border-radius: 0rem;
+    padding: 0;
+    margin: 0;
+    @include text-xs;
   }
-
-	line-height: 1.5;
 }
-
-pre {
-	font-size: 16px;
-	@include p(2);
-	overflow-x: auto;
-}
-
-
 

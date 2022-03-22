@@ -1,38 +1,22 @@
 <script context="module" lang="ts">
 	export const prerender = true;
-	import Scale from '$lib/icons/Scale.svelte';
-	import Color from '$lib/icons/Color.svelte';
-	import Typography from '$lib/icons/Typography.svelte';
+	import Constrained from '$lib/home/Constrained.svelte';
+	import FeatureCode from '$lib/home/FeatureCode.svx';
+	import FeatureCodeStyle from '$lib/home/FeatureCodeStyle.svx';
 
-	import { compile } from 'mdsvex/dist/browser-umd';
-	import '../app.scss';
-	import '../resets.scss';
+	import Paragraph from '$lib/test.svx';
+	import Customize from '$lib/customize.svx';
 
-	export async function load() {
-		const transformedCode = await compile(
-			`
-\`\`\`scss-diff
--  @variants hover, focus {
-+  @layer utilities {
-     .content-auto {
-       content-visibility: auto;
-     }
-   }
-\`\`\`
-`,
-			{}
-		).then((x: any) =>
-			x.code
-				.replace(/>{@html `<code class="language-/g, '><code class="language-')
-				.replace(/<\/code>`}<\/pre>/g, '</code></pre>')
-		);
-
-		return { props: { transformedCode } };
-	}
+	import DataProps from '$lib/home/DataProps.svx';
+	import ScopedSCSS from '$lib/home/ScopedSCSS.svx';
 </script>
 
-<script>
-	export let transformedCode;
+<script lang="ts">
+	let featureTab = 'style';
+
+	const handleTabChange = (next: string) => {
+		featureTab = next;
+	};
 </script>
 
 <svelte:head>
@@ -47,12 +31,31 @@
 	</p>
 
 	<a sveltekit:prefetch href="/docs/getting-bridge">
-		<button>Get Started</button>
+		<button class="get-started">Get Started</button>
 	</a>
 </section>
 
 <section class="hero">
-	<div class="left">Left side some effect</div>
+	<div class="left">
+		<figure>
+			<img
+				src="https://images.unsplash.com/photo-1613379171002-3610ae01cf4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+				alt="hero quote"
+			/>
+			<div class="left-caption">
+				<blockquote>
+					<p>
+						"BridgeCSS is designed to make starting new projects easy, but get out of your way as
+						your project grows"
+					</p>
+				</blockquote>
+				<figcaption>
+					<div class="author">John Smith</div>
+					<div class="title">Tech Lead, Google</div>
+				</figcaption>
+			</div>
+		</figure>
+	</div>
 
 	<div class="code-frame">
 		<div class="code">
@@ -64,220 +67,24 @@
 						<div class="window-decoration" />
 					</div>
 				</div>
+				<div class="window-tabs">
+					<button
+						class="window-tab"
+						data-active={featureTab === 'style'}
+						on:click={() => handleTabChange('style')}>main.scss</button
+					>
+					<button
+						class="window-tab"
+						data-active={featureTab === 'markup'}
+						on:click={() => handleTabChange('markup')}>index.html</button
+					>
+				</div>
 				<div class="window-content">
-					<div>
-						<div class="line-numbers">
-							<pre>
-                <div aria-hidden="true">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-</div>
-                <code class="flex-auto relative block text-slate-50 pt-4 pb-4 px-4 overflow-auto"
-									><span class="token tag"
-										><span class="token punctuation">&lt;</span>figure <span class="token attr-name"
-											>class</span
-										><span class="token attr-value"
-											><span class="token punctuation">=</span><span class="token punctuation"
-												>"</span
-											><span>m</span><span>d</span><span>:</span><span>f</span><span>l</span><span
-												>e</span
-											><span>x</span><span />bg-slate-100 rounded-xl<span /><span>p</span><span
-												>-</span
-											><span>8</span><span /><span>m</span><span>d</span><span>:</span><span>p</span
-											><span>-</span><span>0</span> dark:bg-slate-800<span class="token punctuation"
-												>"</span
-											></span
-										><span class="token punctuation">&gt;</span></span
-									>
-  <span class="token tag"
-										><span class="token punctuation">&lt;</span>img <span class="token attr-name"
-											>class</span
-										><span class="token attr-value"
-											><span class="token punctuation">=</span><span class="token punctuation"
-												>"</span
-											>w-24 h-24<span /><span>m</span><span>d</span><span>:</span><span>w</span
-											><span>-</span><span>4</span><span>8</span><span /><span>m</span><span>d</span
-											><span>:</span><span>h</span><span>-</span><span>a</span><span>u</span><span
-												>t</span
-											><span>o</span><span /><span>m</span><span>d</span><span>:</span><span>r</span
-											><span>o</span><span>u</span><span>n</span><span>d</span><span>e</span><span
-												>d</span
-											><span>-</span><span>n</span><span>o</span><span>n</span><span>e</span><span
-											/><span>r</span><span>o</span><span>u</span><span>n</span><span>d</span><span
-												>e</span
-											><span>d</span><span>-</span><span>f</span><span>u</span><span>l</span><span
-												>l</span
-											><span /><span>m</span><span>x</span><span>-</span><span>a</span><span>u</span
-											><span>t</span><span>o</span><span class="token punctuation">"</span></span
-										> <span class="token attr-name">src</span><span class="token attr-value"
-											><span class="token punctuation">=</span><span class="token punctuation"
-												>"</span
-											>/sarah-dayan.jpg<span class="token punctuation">"</span></span
-										> <span class="token attr-name">alt</span><span class="token attr-value"
-											><span class="token punctuation">=</span><span class="token punctuation"
-												>"</span
-											><span class="token punctuation">"</span></span
-										> <span class="token attr-name">width</span><span class="token attr-value"
-											><span class="token punctuation">=</span><span class="token punctuation"
-												>"</span
-											>384<span class="token punctuation">"</span></span
-										> <span class="token attr-name">height</span><span class="token attr-value"
-											><span class="token punctuation">=</span><span class="token punctuation"
-												>"</span
-											>512<span class="token punctuation">"</span></span
-										><span class="token punctuation">&gt;</span></span
-									>
-  <span class="token tag"
-										><span class="token punctuation">&lt;</span>div <span class="token attr-name"
-											>class</span
-										><span class="token attr-value"
-											><span class="token punctuation">=</span><span class="token punctuation"
-												>"</span
-											>pt-6<span /><span>m</span><span>d</span><span>:</span><span>p</span><span
-												>-</span
-											><span>8</span><span /><span>t</span><span>e</span><span>x</span><span>t</span
-											><span>-</span><span>c</span><span>e</span><span>n</span><span>t</span><span
-												>e</span
-											><span>r</span><span /><span>m</span><span>d</span><span>:</span><span>t</span
-											><span>e</span><span>x</span><span>t</span><span>-</span><span>l</span><span
-												>e</span
-											><span>f</span><span>t</span> space-y-4<span class="token punctuation">"</span
-											></span
-										><span class="token punctuation">&gt;</span></span
-									>
-    <span class="token tag"
-										><span class="token punctuation">&lt;</span>blockquote<span
-											class="token punctuation">&gt;</span
-										></span
-									>
-      <span class="token tag"
-										><span class="token punctuation">&lt;</span>p <span class="token attr-name"
-											>class</span
-										><span class="token attr-value"
-											><span class="token punctuation">=</span><span class="token punctuation"
-												>"</span
-											>text-lg<span /><span>f</span><span>o</span><span>n</span><span>t</span><span
-												>-</span
-											><span>m</span><span>e</span><span>d</span><span>i</span><span>u</span><span
-												>m</span
-											><span class="token punctuation">"</span></span
-										><span class="token punctuation">&gt;</span></span
-									>
-        “Tailwind CSS is the only framework that I've seen scale
-        on large teams. It’s easy to customize, adapts to any design,
-        and the build size is tiny.”
-      <span class="token tag"
-										><span class="token punctuation">&lt;/</span>p<span class="token punctuation"
-											>&gt;</span
-										></span
-									>
-    <span class="token tag"
-										><span class="token punctuation">&lt;/</span>blockquote<span
-											class="token punctuation">&gt;</span
-										></span
-									>
-    <span class="token tag"
-										><span class="token punctuation">&lt;</span>figcaption<span /><span
-											class="token attr-name"
-											><span>c</span><span>l</span><span>a</span><span>s</span><span>s</span></span
-										><span class="token attr-value"
-											><span class="token punctuation"><span>=</span></span><span
-												class="token punctuation"><span>"</span></span
-											><span>f</span><span>o</span><span>n</span><span>t</span><span>-</span><span
-												>m</span
-											><span>e</span><span>d</span><span>i</span><span>u</span><span>m</span><span
-												class="token punctuation"><span>"</span></span
-											></span
-										><span class="token punctuation">&gt;</span></span
-									>
-      <span class="token tag"
-										><span class="token punctuation">&lt;</span>div<span /><span
-											class="token attr-name"
-											><span>c</span><span>l</span><span>a</span><span>s</span><span>s</span></span
-										><span class="token attr-value"
-											><span class="token punctuation"><span>=</span></span><span
-												class="token punctuation"><span>"</span></span
-											><span>t</span><span>e</span><span>x</span><span>t</span><span>-</span><span
-												>s</span
-											><span>k</span><span>y</span><span>-</span><span>5</span><span>0</span><span
-												>0</span
-											><span /><span>d</span><span>a</span><span>r</span><span>k</span><span>:</span
-											><span>t</span><span>e</span><span>x</span><span>t</span><span>-</span><span
-												>s</span
-											><span>k</span><span>y</span><span>-</span><span>4</span><span>0</span><span
-												>0</span
-											><span class="token punctuation"><span>"</span></span></span
-										><span class="token punctuation">&gt;</span></span
-									>
-        Sarah Dayan
-      <span class="token tag"
-										><span class="token punctuation">&lt;/</span>div<span class="token punctuation"
-											>&gt;</span
-										></span
-									>
-      <span class="token tag"
-										><span class="token punctuation">&lt;</span>div<span /><span
-											class="token attr-name"
-											><span>c</span><span>l</span><span>a</span><span>s</span><span>s</span></span
-										><span class="token attr-value"
-											><span class="token punctuation"><span>=</span></span><span
-												class="token punctuation"><span>"</span></span
-											><span>t</span><span>e</span><span>x</span><span>t</span><span>-</span><span
-												>s</span
-											><span>l</span><span>a</span><span>t</span><span>e</span><span>-</span><span
-												>7</span
-											><span>0</span><span>0</span><span /><span>d</span><span>a</span><span>r</span
-											><span>k</span><span>:</span><span>t</span><span>e</span><span>x</span><span
-												>t</span
-											><span>-</span><span>s</span><span>l</span><span>a</span><span>t</span><span
-												>e</span
-											><span>-</span><span>5</span><span>0</span><span>0</span><span
-												class="token punctuation"><span>"</span></span
-											></span
-										><span class="token punctuation">&gt;</span></span
-									>
-        Staff Engineer, Algolia
-      <span class="token tag"
-										><span class="token punctuation">&lt;/</span>div<span class="token punctuation"
-											>&gt;</span
-										></span
-									>
-    <span class="token tag"
-										><span class="token punctuation">&lt;/</span>figcaption<span
-											class="token punctuation">&gt;</span
-										></span
-									>
-  <span class="token tag"
-										><span class="token punctuation">&lt;/</span>div<span class="token punctuation"
-											>&gt;</span
-										></span
-									>
-<span class="token tag"
-										><span class="token punctuation">&lt;/</span>figure<span
-											class="token punctuation">&gt;</span
-										></span
-									>
-</code></pre>
-						</div>
-					</div>
+					{#if featureTab === 'style'}
+						<FeatureCodeStyle />
+					{:else}
+						<FeatureCode />
+					{/if}
 				</div>
 			</div>
 		</div>
@@ -294,20 +101,7 @@
 		frameworks. This should make your transition to using BridgeCSS seamless.
 	</p>
 
-	<div>
-		<div>
-			<span>Spacing</span>
-			<Scale />
-		</div>
-		<div>
-			<span>Color Palette</span>
-			<Color />
-		</div>
-		<div>
-			<span>Fonts</span>
-			<Typography />
-		</div>
-	</div>
+	<Constrained />
 </section>
 
 <section class="feature">
@@ -319,6 +113,8 @@
 		Edit the base styles to get exactly the look you are going for without having to reference
 		external docs or syntax since it's just CSS.
 	</p>
+
+	<Customize />
 </section>
 
 <section class="feature">
@@ -385,9 +181,7 @@
 
 	<p>Since each style gets it's own line changes are easy to review.</p>
 
-	{#if transformedCode}
-		{@html transformedCode}
-	{/if}
+	<Paragraph />
 </section>
 
 <section class="feature">
@@ -399,6 +193,8 @@
 		Data props are a great, framework-independent, way to allow your css to react to changes in the
 		DOM induced by Javascript
 	</p>
+
+	<DataProps />
 </section>
 
 <section class="feature">
@@ -413,6 +209,7 @@
 
 	<div>
 		<div>SvelteKit</div>
+		<ScopedSCSS />
 	</div>
 </section>
 
@@ -469,7 +266,7 @@
 		}
 	}
 
-	button {
+	button.get-started {
 		color: $white;
 		font-weight: 500;
 		@include px(3);
@@ -495,11 +292,64 @@
 		align-items: center;
 
 		.left {
+			border-radius: 1rem;
+			overflow: hidden;
 			border-radius: 1em;
 			background-color: $gray-700;
 			grid-column-start: 1;
 			grid-column: span 5;
-			height: 200px;
+
+			figure {
+				@include p(8);
+				margin: 0px;
+
+				.left-caption {
+					@include pt(3);
+
+					@include tablet {
+						@include p(4);
+					}
+				}
+
+				@include tablet {
+					display: flex;
+					padding: 0;
+				}
+
+				img {
+					width: spacing(24);
+					height: spacing(24);
+					border-radius: 9999px;
+					object-fit: contain;
+
+					@include tablet {
+						width: spacing(48);
+						height: spacing(54);
+						border-radius: 0px;
+					}
+				}
+
+				blockquote {
+					margin: 0;
+					@include text-lg;
+				}
+
+				figcaption {
+					.author {
+						color: $sky-500;
+						@include dark() {
+							color: $sky-400;
+						}
+					}
+
+					.title {
+						color: $slate-700;
+						@include dark() {
+							color: $slate-500;
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -528,36 +378,21 @@
 			flex-direction: column;
 		}
 
-		.window-content {
-			position: relative;
+		.window-tabs {
 			display: flex;
-			flex-direction: column;
-			flex: 1 1 auto;
+			align-items: center;
+			@include space-x(3);
+			@include px(3);
+			@include py(1);
+			font-family: $mono;
 
-			div {
-				width: 100%;
-				display: flex;
-				flex: 1 1 auto;
+			> :not(:last-child) {
+				@include pr(3);
+				border-right: 1px solid $gray-100;
+			}
 
-				.line-numbers {
-					width: 100%;
-					position: relative;
-					flex: 1 1 auto;
-
-					pre {
-						@include text-sm();
-						display: flex;
-
-						code {
-							flex: 1 1 auto;
-							position: relative;
-							display: block;
-							@include pt(4);
-							@include pb(4);
-							@include px(4);
-						}
-					}
-				}
+			> [data-active='true'] {
+				font-weight: 700;
 			}
 		}
 

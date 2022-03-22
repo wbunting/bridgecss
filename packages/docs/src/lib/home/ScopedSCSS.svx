@@ -1,0 +1,21 @@
+```svelte
+<form>
+  <label>Name</label>
+  <input />
+  <button type="submit">Submit</button>
+</form>
+
+<style lang="scss">
+form {
+    label {
+  
+    }
+  
+    input {
+  
+    }
+}
+</style>
+```
+
+

@@ -1,0 +1,9 @@
+```diff-scss
+  // src/bridge.scss
+
+  // import the defaults
+  @import 'bridgecss/bridge.scss';
+
+  // override to your heart's content
++ $gray-500: #000000;
+```

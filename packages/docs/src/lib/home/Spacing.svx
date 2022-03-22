@@ -1,0 +1,13 @@
+```scss
+.selector {
+  // use helper mixins
+  @include space-x(3);
+
+  span {
+    @include mr(3);
+
+    // or use the `spacing function to get a value in the scale`
+    padding-bottom: spacing(2);
+  }
+}
+```

@@ -1,0 +1,9 @@
+```scss
+.selector {
+  @include text-xs;
+
+  @include tablet {
+    @include text-sm;
+  }
+}
+```
