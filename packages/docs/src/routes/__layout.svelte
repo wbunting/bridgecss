@@ -19,9 +19,8 @@
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		padding: 1rem;
+		align-items: center;
 		width: 100%;
-		max-width: 80rem;
 		margin: 0 auto;
 		box-sizing: border-box;
 	}

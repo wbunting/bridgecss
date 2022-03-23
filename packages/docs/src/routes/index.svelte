@@ -14,11 +14,11 @@
 
 <script lang="ts">
 	let featureTab = 'style';
- let isDataPropsActive = false;
+	let isDataPropsActive = false;
 
- const handleDataPropsClick = () => {
-	 isDataPropsActive = !isDataPropsActive;
- }
+	const handleDataPropsClick = () => {
+		isDataPropsActive = !isDataPropsActive;
+	};
 
 	const handleTabChange = (next: string) => {
 		featureTab = next;
@@ -98,129 +98,149 @@
 </section>
 
 <section class="feature">
-	<span>Constrained</span>
-
-	<h3>A battle-tested set of design constraints.</h3>
-
-	<p>
-		We've ported over a great set of design constraints and color pallette from other popular
-		frameworks. This should make your transition to using BridgeCSS seamless.
-	</p>
-
 	<Constrained />
 </section>
 
 <section class="feature">
-	<span>Customize</span>
+	<div class="feature--top">
+		<div class="feature--top-container">
+			<span class="feature--tag">Customize</span>
 
-	<h3>It's your design</h3>
+			<h3>It's your design</h3>
 
-	<p>
-		Edit the base styles to get exactly the look you are going for without having to reference
-		external docs or syntax since it's just CSS.
-	</p>
-
-	<Customize />
+			<p>
+				Edit the base styles to get exactly the look you are going for without having to reference
+				external docs or syntax since it's just CSS.
+			</p>
+		</div>
+	</div>
+	<div class="feature--item">
+		<div class="feature--item-container">
+			<div class="feature--item-left">
+				<Customize />
+			</div>
+		</div>
+	</div>
 </section>
 
 <section class="feature">
-	<span>Batteries Included</span>
-
-	<h3>No more ejecting</h3>
-
-	<p>
-		Want to use 3D CSS transforms? how about pseudo-elements? With BridgeCSS you can just use those
-		as you normally would without having to eject from a utility-first framework
-	</p>
-
 	<BatteriesIncluded />
 </section>
 
 <section class="feature">
-	<span>Flexible</span>
+	<div class="feature--top">
+		<div class="feature--top-container">
+			<span class="feature--tag">Flexible</span>
 
-	<h3>Zero Javascript Dependencies</h3>
+			<h3>Zero Javascript Dependencies</h3>
 
-	<p>
-		While BridgeCSS can be used to react to changes in your site induced by Javascript, it is in now
-		way coupled to it. So use as little or as much Javascript as you like (not as much as your CSS
-		framework likes).
-	</p>
+			<p>
+				While BridgeCSS can be used to react to changes in your site induced by Javascript, it is in
+				now way coupled to it. So use as little or as much Javascript as you like (not as much as
+				your CSS framework likes).
+			</p>
 
-	<div>
-		<svg
-			id="screenshot"
-			viewBox="319 283.5 155 155"
-			width="100"
-			height="100"
-			version="1.1"
-			xmlns="http://www.w3.org/2000/svg"
-			xmlns:xlink="http://www.w3.org/1999/xlink"
-			style="-webkit-print-color-adjust: exact;"
-			><g id="shape-063b7400-a502-11ec-8338-071957b39045"
-				><g id="shape-bdb2f340-a4ff-11ec-8338-071957b39045"
-					><g id="shape-d3ad7280-a502-11ec-8338-071957b39045"
-						><path
-							d="M345,306.5L447,306.5L447,408.5L345,408.5L345,306.5ZM379.560373422916,387.3799249643521L371.75113682899587,392.1077622257676C374.0133684714761,396.8955583487676,378.46166779712684,400.87066882083343,386.14288411901543,400.87066882083343C394.6440783858144,400.87066882083343,400.4681905083603,396.3494465554179,400.4681905083603,386.41572164968466L400.4681905083603,353.6652191464424L390.87477265486234,353.6652191464424L390.87477265486234,386.2860808678806C390.87477265486234,391.0811692848572,388.88640716394315,392.3143772217676,385.7345156563327,392.3143772217676C382.4383987789654,392.3143772217676,381.06744751138774,390.0537660890601,379.560373422916,387.3799249643521ZM413.45009429626106,386.5486034510336L405.65382178052135,391.0779282653118C408.47026776521386,396.64275882424977,414.22631847731253,400.88849442833157,423.13588120679447,400.88849442833157C432.24800765784505,400.88849442833157,439.0330820755132,396.1566058924848,439.0330820755132,387.5192888047916C439.0330820755132,379.50748848930255,434.43083432147023,375.94398749946424,426.279670165542,372.4485479200732L423.8813157021676,371.42114472427613C419.76522087988974,369.6385839744711,417.9826601300844,368.4734374480073,417.9826601300844,365.595412091958C417.9826601300844,363.2667395488029,419.76360037011716,361.4841787989976,422.57356431571935,361.4841787989976C425.32843092905506,361.4841787989976,427.1028891299976,362.64608430591613,428.7477065491362,365.595412091958L436.2182566005933,360.79870316520885C433.05826254412017,355.2403546453613,428.67316309959887,353.1174868433203,422.57356431571935,353.1174868433203C414.00592914824585,353.1174868433203,408.52374458770805,358.59480987454026,408.52374458770805,365.78987326466404C408.52374458770805,373.6007303683566,413.1227513222059,377.2954926497713,420.04556907054103,380.2448204358129L422.4439235339155,381.27384414138226C426.81929991980127,383.18766618276425,429.42832065360744,384.35281270922803,429.42832065360744,387.6424475475052C429.42832065360744,390.38759110220553,426.8889818400209,392.3743360833522,422.91387136795504,392.3743360833522C418.18198283210813,392.3743360833522,415.5065211976275,389.90629969975805,413.45009429626106,386.5486034510336Z"
-							style="fill: rgb(177, 178, 181); fill-opacity: 1;"
-						/></g
-					></g
-				><g id="shape-04acbdb0-a502-11ec-8338-071957b39045"
-					><path
-						d="M396.5,283.5C439.273414398285,283.5,474,318.226585601715,474,361C474,403.7734143982849,439.273414398285,438.5,396.5,438.5C353.726585601715,438.5,319,403.7734143982849,319,361C319,318.226585601715,353.726585601715,283.5,396.5,283.5ZM396.9378531073446,295.7598870056497C360.6891968376115,295.7598870056497,331.2598870056497,325.18919683761146,331.2598870056497,361.4378531073446C331.2598870056497,397.68650937707764,360.6891968376115,427.1158192090395,396.9378531073446,427.1158192090395C433.18650937707764,427.1158192090395,462.61581920903956,397.68650937707764,462.61581920903956,361.4378531073446C462.61581920903956,325.18919683761146,433.18650937707764,295.7598870056497,396.9378531073446,295.7598870056497ZM359.45741505260924,306.69019932459446L369.7497685620255,300.02894638013595L444.9267657383512,416.18550689009464L434.6344122289349,422.84675983455327L359.45741505260924,306.69019932459446Z"
-						style="fill: rgb(113, 141, 1); fill-opacity: 1;"
-					/></g
-				></g
-			></svg
-		>
+			<div>
+				<svg
+					id="screenshot"
+					viewBox="319 283.5 155 155"
+					width="100"
+					height="100"
+					version="1.1"
+					xmlns="http://www.w3.org/2000/svg"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					style="-webkit-print-color-adjust: exact;"
+					><g id="shape-063b7400-a502-11ec-8338-071957b39045"
+						><g id="shape-bdb2f340-a4ff-11ec-8338-071957b39045"
+							><g id="shape-d3ad7280-a502-11ec-8338-071957b39045"
+								><path
+									d="M345,306.5L447,306.5L447,408.5L345,408.5L345,306.5ZM379.560373422916,387.3799249643521L371.75113682899587,392.1077622257676C374.0133684714761,396.8955583487676,378.46166779712684,400.87066882083343,386.14288411901543,400.87066882083343C394.6440783858144,400.87066882083343,400.4681905083603,396.3494465554179,400.4681905083603,386.41572164968466L400.4681905083603,353.6652191464424L390.87477265486234,353.6652191464424L390.87477265486234,386.2860808678806C390.87477265486234,391.0811692848572,388.88640716394315,392.3143772217676,385.7345156563327,392.3143772217676C382.4383987789654,392.3143772217676,381.06744751138774,390.0537660890601,379.560373422916,387.3799249643521ZM413.45009429626106,386.5486034510336L405.65382178052135,391.0779282653118C408.47026776521386,396.64275882424977,414.22631847731253,400.88849442833157,423.13588120679447,400.88849442833157C432.24800765784505,400.88849442833157,439.0330820755132,396.1566058924848,439.0330820755132,387.5192888047916C439.0330820755132,379.50748848930255,434.43083432147023,375.94398749946424,426.279670165542,372.4485479200732L423.8813157021676,371.42114472427613C419.76522087988974,369.6385839744711,417.9826601300844,368.4734374480073,417.9826601300844,365.595412091958C417.9826601300844,363.2667395488029,419.76360037011716,361.4841787989976,422.57356431571935,361.4841787989976C425.32843092905506,361.4841787989976,427.1028891299976,362.64608430591613,428.7477065491362,365.595412091958L436.2182566005933,360.79870316520885C433.05826254412017,355.2403546453613,428.67316309959887,353.1174868433203,422.57356431571935,353.1174868433203C414.00592914824585,353.1174868433203,408.52374458770805,358.59480987454026,408.52374458770805,365.78987326466404C408.52374458770805,373.6007303683566,413.1227513222059,377.2954926497713,420.04556907054103,380.2448204358129L422.4439235339155,381.27384414138226C426.81929991980127,383.18766618276425,429.42832065360744,384.35281270922803,429.42832065360744,387.6424475475052C429.42832065360744,390.38759110220553,426.8889818400209,392.3743360833522,422.91387136795504,392.3743360833522C418.18198283210813,392.3743360833522,415.5065211976275,389.90629969975805,413.45009429626106,386.5486034510336Z"
+									style="fill: rgb(177, 178, 181); fill-opacity: 1;"
+								/></g
+							></g
+						><g id="shape-04acbdb0-a502-11ec-8338-071957b39045"
+							><path
+								d="M396.5,283.5C439.273414398285,283.5,474,318.226585601715,474,361C474,403.7734143982849,439.273414398285,438.5,396.5,438.5C353.726585601715,438.5,319,403.7734143982849,319,361C319,318.226585601715,353.726585601715,283.5,396.5,283.5ZM396.9378531073446,295.7598870056497C360.6891968376115,295.7598870056497,331.2598870056497,325.18919683761146,331.2598870056497,361.4378531073446C331.2598870056497,397.68650937707764,360.6891968376115,427.1158192090395,396.9378531073446,427.1158192090395C433.18650937707764,427.1158192090395,462.61581920903956,397.68650937707764,462.61581920903956,361.4378531073446C462.61581920903956,325.18919683761146,433.18650937707764,295.7598870056497,396.9378531073446,295.7598870056497ZM359.45741505260924,306.69019932459446L369.7497685620255,300.02894638013595L444.9267657383512,416.18550689009464L434.6344122289349,422.84675983455327L359.45741505260924,306.69019932459446Z"
+								style="fill: rgb(113, 141, 1); fill-opacity: 1;"
+							/></g
+						></g
+					></svg
+				>
+			</div>
+		</div>
 	</div>
 </section>
 
 <section class="feature">
-	<span>Git</span>
+	<div class="feature--top">
+		<div class="feature--top-container">
+			<span class="feature--tag">Git</span>
 
-	<h3>Great looking git diffs</h3>
+			<h3>Great looking git diffs</h3>
 
-	<p>Since each style gets it's own line changes are easy to review.</p>
-
-	<Paragraph />
-</section>
-
-<section class="feature">
-	<span>Reactive</span>
-
-	<h3>Reactivity? Meet data-props</h3>
-
-	<p>
-		Data props are a great, framework-independent, way to allow your css to react to changes in the
-		DOM induced by Javascript
-	</p>
-
-	<div class="side-by-side">
-		<DataProps />
-        <div>
-			<button class="data-props" data-active={isDataPropsActive} on:click={handleDataPropsClick}>
-				{#if isDataPropsActive}
-					Click Me
-				{:else}
-					Active
-				{/if}
-			</button>
-       </div>
+			<p>Since each style gets it's own line changes are easy to review.</p>
+		</div>
+	</div>
+	<div class="feature--item">
+		<div class="feature--item-container">
+			<div class="feature--item-left">
+				<Paragraph />
+			</div>
+		</div>
 	</div>
 </section>
 
 <section class="feature">
-	<span>Naming is hard</span>
+	<div class="feature--top">
+		<div class="feature--top-container">
+			<span>Reactive</span>
 
-	<h3>Tired of naming classes? Try scoped SCSS</h3>
+			<h3>Reactivity? Meet data-props</h3>
 
-	<p>
-		Some frameworks even allow you to scope your css to particular components making naming classes
-		almost irrelevant
-	</p>
+			<p>
+				Data props are a great, framework-independent, way to allow your css to react to changes in
+				the DOM induced by Javascript
+			</p>
+		</div>
+	</div>
+	<div class="feature--item">
+		<div class="feature--item-container">
+			<div class="feature--item-left">
+				<DataProps />
+			</div>
+			<div class="feature--item-right">
+				<button class="data-props" data-active={isDataPropsActive} on:click={handleDataPropsClick}>
+					{#if isDataPropsActive}
+						Click Me
+					{:else}
+						Active
+					{/if}
+				</button>
+			</div>
+		</div>
+	</div>
+</section>
 
-	<ScopedSCSS />
+<section class="feature">
+	<div class="feature--top">
+		<div class="feature--top-container">
+			<span>Naming is hard</span>
+
+			<h3>Tired of naming classes? Try scoped SCSS</h3>
+
+			<p>
+				Some frameworks even allow you to scope your css to particular components making naming
+				classes almost irrelevant
+			</p>
+		</div>
+	</div>
+	<div class="feature--item">
+		<div class="feature--item-container">
+			<div class="feature--item-left">
+				<ScopedSCSS />
+			</div>
+		</div>
+	</div>
 </section>
 
 <section class="topic-list">
@@ -234,53 +254,27 @@
 <style lang="scss">
 	@use 'src/bridge.scss' as *;
 
+	.hero {
+		max-width: 80rem;
+		display: flex;
+		justify-content: center;
+	}
+
 	section {
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: flex-start;
-        background-color: bg-opacity($slate-700, 0.1);
 		flex: 1;
 		@include py(5);
-		@include px(5);
-		@include mr(3);
-		@include ml(3);
 		@include mt(3);
 		@include mb(3);
-        backdrop-filter: blur(5px);
 
 		&.topic-list {
 			display: flex;
 			flex-direction: row;
 			@include space-x(3);
-		}
-	}
-
- .feature {
-
-		span {
-			@include mt(5);
-			text-transform: uppercase;
-			font-weight: 700;
-			color: $orange-100;
-		}
-
-		div {
-			display: flex;
-			justify-content: center;
-			@include space-x(4);
-		}
-
-		&:before {
-			content: ' ';
-			width: 100%;
-			height: 1rem;
-			background: repeating-linear-gradient(
-				rgba(255, 255, 255, 0.2) 0%,
-				rgba(255, 255, 255, 0.2) 10%,
-				rgb(34, 34, 34) 10%,
-				rgb(34, 34, 34) 20%
-			);
 		}
 	}
 
@@ -300,6 +294,7 @@
 
 	.header {
 		align-items: center;
+		max-width: 80rem;
 	}
 
 	.hero {
@@ -471,12 +466,11 @@
 		@include leading(3);
 	}
 
+	button.data-props {
+		background-color: $gray-700;
 
-  button.data-props {
-    background-color: $gray-700;
-
-    &[data-active="true"] {
-      background-color: $gray-800;
-    }
-  }
+		&[data-active='true'] {
+			background-color: $gray-800;
+		}
+	}
 </style>

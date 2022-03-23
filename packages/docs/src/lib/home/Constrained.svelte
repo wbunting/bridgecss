@@ -1,11 +1,11 @@
 <script>
-    import ColorDark from '$lib/icons/ColorsDark.svelte';
+	import ColorDark from '$lib/icons/ColorsDark.svelte';
 	import Scale from '$lib/icons/SpacingDark.svelte';
 	import Typography from '$lib/icons/TypographyDark.svelte';
 
 	import Spacing from './Spacing.svx';
 	import ColorPalette from './ColorPalette.svx';
-    import Fonts from './Fonts.svx';
+	import Fonts from './Fonts.svx';
 
 	let active = 'spacing';
 
@@ -14,27 +14,44 @@
 	}
 </script>
 
-<div>
-	<div class="selector">
-		<button on:click={() => handleClick('spacing')} data-active={'spacing' === active}>
-			<Scale />
-		</button>
-		<button on:click={() => handleClick('colors')} data-active={'colors' === active}>
-			<ColorDark />
-		</button>
-		<button on:click={() => handleClick('typography')} data-active={'typography' === active}>
-			<Typography />
-		</button>
-	</div>
+<div class="feature--top">
+	<div class="feature--top-container">
+		<span class="feature--tag">Constrained</span>
 
-	<div>
-		{#if active === 'spacing'}
-			<Spacing />
-		{:else if active === 'colors'}
-			<ColorPalette />
-		{:else if active === 'typography'}
-			<Fonts />
-		{/if}
+		<h3>A battle-tested set of design constraints.</h3>
+
+		<p>
+			We've ported over a great set of design constraints and color pallette from other popular
+			frameworks. This should make your transition to using BridgeCSS seamless.
+		</p>
+
+		<div>
+			<div class="selector">
+				<button on:click={() => handleClick('spacing')} data-active={'spacing' === active}>
+					<Scale />
+				</button>
+				<button on:click={() => handleClick('colors')} data-active={'colors' === active}>
+					<ColorDark />
+				</button>
+				<button on:click={() => handleClick('typography')} data-active={'typography' === active}>
+					<Typography />
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="feature--item">
+	<div class="feature--item-container">
+		<div class="feature--item-left">
+			{#if active === 'spacing'}
+				<Spacing />
+			{:else if active === 'colors'}
+				<ColorPalette />
+			{:else if active === 'typography'}
+				<Fonts />
+			{/if}
+		</div>
+		<div class="feature--item-right">hi</div>
 	</div>
 </div>
 
@@ -51,7 +68,7 @@
 			align-items: center;
 			border-radius: 28px;
 			padding: 0;
-		    border: 2px solid $slate-500;
+			border: 2px solid $slate-500;
 
 			&[data-active='true'] {
 				border: 2px solid $blue-500;

@@ -105,6 +105,9 @@
 				<a sveltekit:prefetch href="/docs/getting-bridge">Docs</a>
 			</li>
 			<li>
+				<a sveltekit:prefetch href="/licensing">Licensing</a>
+			</li>
+			<li>
 				<a href="https://github.com/wbunting/bridgecss">Github</a>
 			</li>
 			<li>
