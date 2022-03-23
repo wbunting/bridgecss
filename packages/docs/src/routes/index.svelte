@@ -239,8 +239,15 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: flex-start;
+        background-color: bg-opacity($slate-700, 0.1);
 		flex: 1;
 		@include py(5);
+		@include px(5);
+		@include mr(3);
+		@include ml(3);
+		@include mt(3);
+		@include mb(3);
+        backdrop-filter: blur(5px);
 
 		&.topic-list {
 			display: flex;
@@ -249,7 +256,8 @@
 		}
 	}
 
-	.feature {
+ .feature {
+
 		span {
 			@include mt(5);
 			text-transform: uppercase;
