@@ -38,6 +38,12 @@
 @mixin pr($space) {
   padding-right: calc($space * 1rem / 4);
 }
+@mixin m($space) {
+  margin-top: calc($space * 1rem / 4);
+  margin-bottom: calc($space * 1rem / 4);
+  margin-left: calc($space * 1rem / 4);
+  margin-right: calc($space * 1rem / 4);
+}
 @mixin mt($space) {
   margin-top: calc($space * 1rem / 4);
 }
