@@ -38,6 +38,21 @@
 @mixin pr($space) {
   padding-right: calc($space * 1rem / 4);
 }
+
+@mixin my($space) {
+  margin-top: calc($space * 1rem / 4);
+  margin-bottom: calc($space * 1rem / 4); 
+}
+@mixin mx($space) {
+  margin-left: calc($space * 1rem / 4);
+  margin-right: calc($space * 1rem / 4); 
+}
+@mixin mxy($spacex, $spacey) {
+  margin-top: calc($spacey * 1rem / 4);
+  margin-bottom: calc($spacey * 1rem / 4); 
+  margin-left: calc($spacex * 1rem / 4);
+  margin-right: calc($spacex * 1rem / 4); 
+}
 @mixin m($space) {
   margin-top: calc($space * 1rem / 4);
   margin-bottom: calc($space * 1rem / 4);
@@ -57,11 +72,16 @@
   margin-right: calc($space * 1rem / 4);
 }
 @mixin space-x($space) {
+  display: flex;
+
   >:not(:last-child) {
     @include mr($space);
   }
 }
 @mixin space-y($space) {
+  display: flex;
+  flex-direction: column;
+
   >:not(:last-child) {
     @include mb($space);
   }
