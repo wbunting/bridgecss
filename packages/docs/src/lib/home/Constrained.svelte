@@ -3,7 +3,8 @@
 	import Scale from '$lib/icons/SpacingDark.svelte';
 	import Typography from '$lib/icons/TypographyDark.svelte';
 
-	import Spacing from './Spacing.svx';
+	import SpacingCode from './Spacing.svx';
+	import Spacing from './Spacing.svelte';
 	import ColorPalette from './ColorPalette.svx';
 	import Fonts from './Fonts.svx';
 
@@ -44,14 +45,18 @@
 	<div class="feature--item-container">
 		<div class="feature--item-left">
 			{#if active === 'spacing'}
-				<Spacing />
+				<SpacingCode />
 			{:else if active === 'colors'}
 				<ColorPalette />
 			{:else if active === 'typography'}
 				<Fonts />
 			{/if}
 		</div>
-		<div class="feature--item-right">hi</div>
+		<div class="feature--item-right">
+			{#if active === 'spacing'}
+				<Spacing />
+			{/if}
+		</div>
 	</div>
 </div>
 

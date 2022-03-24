@@ -19,3 +19,14 @@
 ```
 
 
+<style lang="scss">
+@use 'src/bridge.scss' as *;
+
+pre {
+  @include glass
+}
+
+code {
+  background-color: transparent;
+}
+</style>

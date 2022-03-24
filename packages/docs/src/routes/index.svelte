@@ -264,7 +264,6 @@
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		align-items: flex-start;
 		flex: 1;
 		@include py(5);

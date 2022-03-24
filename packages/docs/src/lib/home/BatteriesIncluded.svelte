@@ -38,7 +38,7 @@
 <div class="feature--item">
 	<div class="feature--item-container">
 		<div class="feature--item-left" />
-		<div class="feature--item-right">hi</div>
+		<div class="feature--item-right" />
 	</div>
 </div>
 

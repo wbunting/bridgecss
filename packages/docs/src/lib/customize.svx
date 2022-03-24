@@ -7,3 +7,16 @@
   // override to your heart's content
 + $gray-500: #000000;
 ```
+
+
+<style lang="scss">
+@use 'src/bridge.scss' as *;
+
+pre {
+  @include glass
+}
+
+code {
+  background-color: transparent;
+}
+</style>
