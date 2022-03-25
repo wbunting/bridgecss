@@ -23,3 +23,12 @@
   margin-left: calc($spacex * 1rem / 4);
   margin-right: calc($spacex * 1rem / 4); 
 }
+@mixin mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+@mixin three-d($color) {
+	background-color: $color;
+	box-shadow: 0px 4px 4px bg-opacity($black, 0.25),
+		inset -4px -4px 10px bg-opacity($black, 0.25), inset 0px 4px 4px bg-opacity($color, 0.25);
+}

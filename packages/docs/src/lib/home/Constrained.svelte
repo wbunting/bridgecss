@@ -5,7 +5,8 @@
 
 	import SpacingCode from './Spacing.svx';
 	import Spacing from './Spacing.svelte';
-	import ColorPalette from './ColorPalette.svx';
+	import ColorPaletteCode from './ColorPalette.svx';
+	import ColorPalette from './ColorPalette.svelte';
 	import Fonts from './Fonts.svx';
 
 	let active = 'spacing';
@@ -47,7 +48,7 @@
 			{#if active === 'spacing'}
 				<SpacingCode />
 			{:else if active === 'colors'}
-				<ColorPalette />
+				<ColorPaletteCode />
 			{:else if active === 'typography'}
 				<Fonts />
 			{/if}
@@ -55,6 +56,8 @@
 		<div class="feature--item-right">
 			{#if active === 'spacing'}
 				<Spacing />
+			{:else if active === 'colors'}
+				<ColorPalette />
 			{/if}
 		</div>
 	</div>
