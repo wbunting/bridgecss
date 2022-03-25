@@ -1,4 +1,6 @@
 <script lang="ts">
+	import Github from '$lib/icons/Github.svelte';
+
 	import { onMount } from 'svelte';
 
 	export let sticky = false;
@@ -102,13 +104,10 @@
 	<nav>
 		<ul>
 			<li>
-				<a sveltekit:prefetch href="/docs/getting-bridge">Docs</a>
+				<a class="underline" sveltekit:prefetch href="/docs/getting-bridge">Docs</a>
 			</li>
 			<li>
-				<a sveltekit:prefetch href="/licensing">Licensing</a>
-			</li>
-			<li>
-				<a href="https://github.com/wbunting/bridgecss">Github</a>
+				<a class="underline" sveltekit:prefetch href="/licensing">Licensing</a>
 			</li>
 			<li>
 				<button class="dark-mode-toggle" on:click={handleToggleDark}>
@@ -141,6 +140,11 @@
 					{/if}
 				</button>
 			</li>
+			<li>
+				<a href="https://github.com/wbunting/bridgecss">
+					<Github />
+				</a>
+			</li>
 		</ul>
 	</nav>
 </header>
@@ -156,6 +160,11 @@
 		display: flex;
 		align-items: center;
 		@include space-x(2);
+		@include text-sm;
+
+		@include tablet {
+			@include text-lg;
+		}
 	}
 
 	header {
@@ -178,7 +187,7 @@
 		justify-content: center;
 		position: relative;
 
-		a {
+		a.underline {
 			display: flex;
 			height: 100%;
 			align-items: center;
@@ -247,7 +256,11 @@
 		align-items: center;
 		list-style: none;
 		background-size: contain;
-		@include space-x(10);
+		@include space-x(4);
+
+		@include tablet {
+			@include space-x(10);
+		}
 
 		li {
 			position: relative;

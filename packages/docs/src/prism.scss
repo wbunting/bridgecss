@@ -163,8 +163,11 @@ pre[class*="language-"] {
 
 pre[class^='language-diff-'] {
   display: flex;
-  padding-left: 2.25rem;
-  padding-right: 2.25rem;
+  @include px(2);
+
+  @include tablet {
+    @include px(4);
+  }
 }
 
 pre[class^='language-diff-'] > code {

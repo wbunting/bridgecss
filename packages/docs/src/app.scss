@@ -129,7 +129,7 @@ pre {
 	overflow-x: auto;
 
   border-radius: 0.75rem;
-  padding: 1.25rem;
+  @include p(3);
   background-color: $slate-800;
 
   code {

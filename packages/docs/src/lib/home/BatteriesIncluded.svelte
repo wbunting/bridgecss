@@ -57,6 +57,14 @@
 			padding: 0;
 			border: 2px solid $slate-500;
 
+			height: spacing(20);
+			width: spacing(20);
+
+			@include tablet {
+				height: spacing(40);
+				width: spacing(40);
+			}
+
 			&[data-active='true'] {
 				border: 2px solid $blue-500;
 			}

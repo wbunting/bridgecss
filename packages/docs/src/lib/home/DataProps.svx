@@ -1,6 +1,9 @@
 ```svelte
 <div>
-  <button data-active={isActive} on:click={handleClick} />
+  <button 
+    data-active={isActive} 
+    on:click={handleClick} 
+  />
 </div>
 
 <style lang="scss">
@@ -19,7 +22,8 @@
 @use 'src/bridge.scss' as *;
 
 pre {
-  @include glass
+  @include glass;
+  @include text-sm;
 }
 
 code {

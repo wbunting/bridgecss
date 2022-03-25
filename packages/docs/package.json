@@ -35,6 +35,7 @@
   "type": "module",
   "dependencies": {
     "@fontsource/fira-mono": "^4.5.0",
+    "@icons-pack/svelte-simple-icons": "^2.3.0",
     "@lukeed/uuid": "^2.0.0",
     "bridgecss": "^1.1.0",
     "case": "^1.6.3",
