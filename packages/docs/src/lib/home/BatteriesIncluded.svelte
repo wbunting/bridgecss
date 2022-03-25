@@ -61,8 +61,8 @@
 			width: spacing(20);
 
 			@include tablet {
-				height: spacing(40);
-				width: spacing(40);
+				height: spacing(28);
+				width: spacing(28);
 			}
 
 			&[data-active='true'] {

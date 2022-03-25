@@ -42,6 +42,11 @@
 	.price-cards {
 		display: flex;
 		position: relative;
+		flex-direction: column;
+
+		@include tablet {
+			flex-direction: row;
+		}
 
 		&__left {
 			display: flex;
@@ -54,7 +59,10 @@
 
 		&__right {
 			position: fixed;
-			left: -20px;
+			left: 0px;
+			@tablet {
+				left: -20px;
+			}
 			top: -20px;
 			display: flex;
 			flex-direction: column;
@@ -120,8 +128,10 @@
 
 		&__circle2 {
 			position: absolute;
-			top: 10px;
-			left: 600px;
+			left: 200px;
+			@include tablet {
+				left: 600px;
+			}
 			content: '';
 			height: 100px;
 			width: 100px;
