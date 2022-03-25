@@ -66,13 +66,6 @@
 	<div class="code-frame">
 		<div class="code">
 			<div class="window">
-				<div class="window-pane">
-					<div class="window-decorations">
-						<div class="window-decoration" />
-						<div class="window-decoration" />
-						<div class="window-decoration" />
-					</div>
-				</div>
 				<div class="window-tabs">
 					<button
 						class="window-tab"
@@ -373,8 +366,7 @@
 	}
 
 	.code {
-		border-radius: 1em;
-		background-color: $gray-700;
+		@include glass;
 
 		transform-style: preserve-3d;
 		box-shadow: 0 0 1em #000;
@@ -405,25 +397,6 @@
 
 			> [data-active='true'] {
 				font-weight: 700;
-			}
-		}
-
-		.window-pane {
-			border-bottom: 1px solid $gray-200;
-
-			.window-decorations {
-				display: flex;
-				align-items: center;
-				height: 1rem;
-				@include space-x(1.5);
-				@include px(3);
-
-				.window-decoration {
-					width: 0.25em;
-					height: 0.25em;
-					background-color: $gray-300;
-					border-radius: 9999px;
-				}
 			}
 		}
 	}

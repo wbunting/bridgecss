@@ -1,9 +1,10 @@
 ```html
 <figure> 
-  <img src="https://images.unsplash.com/photo-1613379171002-3610ae01cf4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80">
+  <img src="https://images.unsplash.com/photo-1613379171002-3610ae01cfa...">
   <div>
     <blockquote>
-      "BridgeCSS is designed to make starting new projects easy, but get out of your way as your project grows"
+      "BridgeCSS is designed to make starting new projects easy, 
+      but get out of your way as your project grows"
     </blockquote>
     <figcaption>
       <div class="author">
@@ -16,3 +17,20 @@
   </div>
 </figure>
 ```
+
+
+<style lang="scss">
+@use 'src/bridge.scss' as *;
+
+pre {
+  @include text-xs;
+  background-color: transparent;
+  @include p(2);
+  border-top: 1px solid $slate-100;
+  height: spacing(100);
+}
+
+code {
+  background-color: transparent;
+}
+</style>
