@@ -26,6 +26,7 @@
     "docs": "file:packages/docs"
   },
   "devDependencies": {
+    "@semantic-release/git": "^10.0.1",
     "multi-semantic-release": "^2.11.1",
     "semantic-release": "^19.0.2"
   },
@@ -34,7 +35,8 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       "@semantic-release/npm",
-      "@semantic-release/github"
+      "@semantic-release/github",
+      "@semantic-release/git"
     ],
     "noCi": true
   }
