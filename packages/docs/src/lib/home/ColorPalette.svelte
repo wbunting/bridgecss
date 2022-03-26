@@ -40,6 +40,11 @@
 		font-family: $mono;
 		display: flex;
 		justify-content: center;
+		@include text-xs;
+
+		@include tablet {
+			@include text-base;
+		}
 	}
 
 	.container {
@@ -67,8 +72,12 @@
 			@include space-y(3);
 			background-color: $gray-800;
 			@include space-x(3);
-			@include p(8);
+			@include p(4);
 			border-radius: spacing(4);
+
+			@include tablet {
+				@include p(8);
+			}
 		}
 	}
 
@@ -79,15 +88,26 @@
 		&--label {
 			display: flex;
 			align-items: center;
+			justify-content: flex-end;
 			width: spacing(16);
+			@include text-xs;
+
+			@include tablet {
+				@include text-base;
+			}
 		}
 	}
 
 	.square {
-		height: spacing(16);
-		width: spacing(16);
+		height: spacing(6);
+		width: spacing(6);
 		position: relative;
 		border-radius: spacing(4);
+
+		@include tablet {
+			height: spacing(16);
+			width: spacing(16);
+		}
 
 		&--gray-100 {
 			@include three-d($gray-100);

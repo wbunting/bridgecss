@@ -15,7 +15,9 @@
 @use 'src/bridge.scss' as *;
 
 pre {
-  @include glass
+  @include glass;
+  @include text-sm;
+  width: 100%;
 }
 
 code {

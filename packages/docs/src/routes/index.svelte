@@ -193,7 +193,7 @@
 	<div class="feature--top">
 		<div class="feature--top-container">
 			<div class="feature--top-container-content">
-				<span>Reactive</span>
+				<span class="feature--tag">Reactive</span>
 
 				<h3>Reactivity? Meet data-props</h3>
 
@@ -226,7 +226,7 @@
 	<div class="feature--top">
 		<div class="feature--top-container">
 			<div class="feature--top-container-content">
-				<span>Naming is hard</span>
+				<span class="feature--tag">Naming is hard</span>
 
 				<h3>Tired of naming classes? Try scoped SCSS</h3>
 
@@ -475,7 +475,6 @@
 
 	h3 {
 		@include text-2xl;
-		@include leading(3);
 	}
 
 	button.data-props {
