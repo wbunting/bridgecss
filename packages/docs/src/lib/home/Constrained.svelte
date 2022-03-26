@@ -24,8 +24,8 @@
 		<h3>A battle-tested set of design constraints.</h3>
 
 		<p>
-			We've synthesized a great set of design constraints from other popular
-			frameworks. This should make your transition to using BridgeCSS seamless.
+			We've synthesized a great set of design constraints from other popular frameworks. This should
+			make your transition to using BridgeCSS seamless.
 		</p>
 
 		<div>
@@ -77,7 +77,7 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			border-radius: 28px;
+			border-radius: spacing(5);
 			padding: 0;
 			border: 2px solid $slate-500;
 
@@ -87,6 +87,7 @@
 			@include tablet {
 				height: spacing(28);
 				width: spacing(28);
+				border-radius: spacing(7);
 			}
 
 			&[data-active='true'] {

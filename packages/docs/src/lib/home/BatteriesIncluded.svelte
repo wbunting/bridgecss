@@ -53,7 +53,7 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			border-radius: 28px;
+			border-radius: spacing(5);
 			padding: 0;
 			border: 2px solid $slate-500;
 
@@ -63,6 +63,7 @@
 			@include tablet {
 				height: spacing(28);
 				width: spacing(28);
+				border-radius: spacing(7);
 			}
 
 			&[data-active='true'] {

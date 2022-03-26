@@ -26,6 +26,7 @@ code[class*="language-"] *::-moz-selection,
 pre[class*="language-"] *::-moz-selection {
 	background: hsl(220, 13%, 28%);
 	color: inherit;
+  text-shadow: none;
 }
 
 code[class*="language-"]::selection,
@@ -81,7 +82,7 @@ pre[class*="language-"] {
 
 .token.punctuation,
 .token.attr-equals {
-  color: $slate-500;
+  color: $slate-200;
 }
 
 .token.attr-value * {
@@ -126,16 +127,16 @@ pre[class*="language-"] {
 .token.inserted {
   display: block;
   position: relative;
-    margin-left: -2.25rem;
-    margin-right: -2.25rem;
-    border-left-width: 4px;
-    padding-left: 2rem;
-    padding-right: 1.25rem;
+  margin-left: spacing(-5);
+  margin-right: -2.25rem;
+  border-left-width: 4px;
+  padding-left: spacing(4);
+  padding-right: 1.25rem;
 
   &:before {
     position: absolute;
     top: 0px;
-    left: 1rem; 
+    left: spacing(1); 
   }
 }
 
@@ -161,11 +162,7 @@ pre[class*="language-"] {
 
 pre[class^='language-diff-'] {
   display: flex;
-  @include px(2);
-
-  @include tablet {
-    @include px(4);
-  }
+  @include px(5);
 }
 
 pre[class^='language-diff-'] > code {

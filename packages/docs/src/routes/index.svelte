@@ -269,9 +269,14 @@
 		flex-direction: column;
 		align-items: flex-start;
 		flex: 1;
-		@include py(5);
 		@include mt(3);
 		@include mb(3);
+
+		@include tablet {
+			@include py(5);
+			@include mt(3);
+			@include mb(3);
+		}
 
 		&.topic-list {
 			display: flex;
@@ -300,23 +305,33 @@
 	.header {
 		align-items: center;
 		max-width: 80rem;
+		@include px(4);
+
+		@include tablet {
+			@include px(0);
+		}
 	}
 
 	.hero {
-		@include py(5);
 		display: grid;
 		grid-template-columns: repeat(12, minmax(0, 1fr));
 		align-items: center;
+
+		@include tablet {
+			@include py(5);
+		}
 
 		&--left {
 			overflow: hidden;
 			background-color: $gray-700;
 			grid-column-start: 1;
 			grid-column: span 12;
+			@include m(4);
 
 			@include tablet {
 				grid-column-start: 1;
 				grid-column: span 5;
+				@include m(0);
 			}
 
 			position: relative;
@@ -360,7 +375,7 @@
 					width: spacing(24);
 					height: spacing(24);
 					border-radius: 9999px;
-					object-fit: contain;
+					object-fit: cover;
 
 					@include tablet {
 						width: spacing(48);
@@ -372,11 +387,13 @@
 				blockquote {
 					margin: 0;
 					@include text-lg;
+					font-style: italic;
 				}
 
 				figcaption {
 					.author {
 						color: $sky-500;
+						@include mb(1);
 						@include dark() {
 							color: $sky-400;
 						}
