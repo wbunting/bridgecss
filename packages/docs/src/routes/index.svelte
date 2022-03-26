@@ -408,12 +408,7 @@
 	.code {
 		@include glass;
 
-		transform-style: preserve-3d;
 		box-shadow: 0 0 1em #000;
-		transform: rotateX(var(--rotate-x, 0turn)) rotateY(var(--rotate-y, 0turn));
-		animation: rotate-card 3s ease-in-out;
-		animation-iteration-count: infinite;
-		animation-fill-mode: forwards;
 
 		.window {
 			display: flex;
