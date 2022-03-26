@@ -281,17 +281,20 @@
 	}
 
 	button.get-started {
-		color: $white;
-		font-weight: 500;
+		color: $gray-900;
+		font-weight: 600;
 		@include px(3);
 		@include py(2);
 		border-radius: 0.5rem;
+		// background: $gray-600 radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, $gray-700);
+		@include three-d($gray-400);
+		transition-property: background-color, color;
+		transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+		transition-duration: 200ms;
 
-		background: $gray-600 radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, $gray-700);
-		box-shadow: inset 9px 9px 0px -7px $gray-600, inset -7px -7px 0 -7px rgba(255, 255, 255, 0.3),
-			-2px -2px 2px 0 rgba(0, 0, 0, 0.2), -10px -10px 7px 2px rgba(0, 0, 0, 0.1);
-
-		border-image: linear-gradient(to bottom, $gray-700, rgba(255, 255, 255, 1), $gray-700) 1 100%;
+		&:hover {
+			@include three-d($gray-300);
+		}
 	}
 
 	.header {

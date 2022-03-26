@@ -52,7 +52,7 @@ code {
   z-index: -10;
 
   @include tablet {
-    left: 400px;
+    left: 300px;
   }
 }
 

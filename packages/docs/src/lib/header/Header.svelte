@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+	import { afterNavigate } from '$app/navigation';
 	import Github from '$lib/icons/Github.svelte';
 
 	import { onMount } from 'svelte';
@@ -6,6 +8,11 @@
 	export let sticky = false;
 
 	let mode: string;
+	let pathname = $page.url.pathname;
+
+	afterNavigate(() => {
+		pathname = $page.url.pathname;
+	});
 
 	onMount(() => {
 		if (
@@ -104,10 +111,10 @@
 	<nav>
 		<ul>
 			<li>
-				<a class="underline" sveltekit:prefetch href="/docs/getting-bridge">Docs</a>
+				<a class="underline" sveltekit:prefetch href="/docs/getting-bridge" data-active={pathname.startsWith('/docs')}>Docs</a>
 			</li>
 			<li>
-				<a class="underline" sveltekit:prefetch href="/licensing">Licensing</a>
+				<a class="underline" sveltekit:prefetch href="/licensing" data-active={pathname.startsWith('/licensing')}>Licensing</a>
 			</li>
 			<li>
 				<button class="dark-mode-toggle" on:click={handleToggleDark}>
@@ -223,6 +230,18 @@
 			}
 
 			&:hover {
+				color: $gray-300;
+
+				&:before {
+					transform: scaleX(0.3);
+				}
+
+				&:after {
+					transform: translateX(0);
+				}
+			}
+			
+      &[data-active="true"] {
 				color: $gray-300;
 
 				&:before {

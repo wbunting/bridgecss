@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import ColorDark from '$lib/icons/ColorsDark.svelte';
 	import Scale from '$lib/icons/SpacingDark.svelte';
 	import Typography from '$lib/icons/TypographyDark.svelte';
@@ -7,11 +7,12 @@
 	import Spacing from './Spacing.svelte';
 	import ColorPaletteCode from './ColorPalette.svx';
 	import ColorPalette from './ColorPalette.svelte';
-	import Fonts from './Fonts.svx';
+	import FontsCode from './Fonts.svx';
+	import Fonts from './Fonts.svelte';
 
 	let active = 'spacing';
 
-	function handleClick(next) {
+	function handleClick(next: any) {
 		active = next;
 	}
 </script>
@@ -23,7 +24,7 @@
 		<h3>A battle-tested set of design constraints.</h3>
 
 		<p>
-			We've ported over a great set of design constraints and color pallette from other popular
+			We've synthesized a great set of design constraints from other popular
 			frameworks. This should make your transition to using BridgeCSS seamless.
 		</p>
 
@@ -50,7 +51,7 @@
 			{:else if active === 'colors'}
 				<ColorPaletteCode />
 			{:else if active === 'typography'}
-				<Fonts />
+				<FontsCode />
 			{/if}
 		</div>
 		<div class="feature--item-right">
@@ -58,6 +59,8 @@
 				<Spacing />
 			{:else if active === 'colors'}
 				<ColorPalette />
+			{:else if active === 'typography'}
+				<Fonts />
 			{/if}
 		</div>
 	</div>
