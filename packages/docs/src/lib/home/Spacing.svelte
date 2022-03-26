@@ -31,6 +31,7 @@
 
 		&--color {
 			display: flex;
+			justify-content: center;
 			background-color: $gray-800;
 			@include space-x(3);
 			@include p(8);
@@ -43,6 +44,8 @@
 		height: spacing(16);
 		width: spacing(16);
 		position: relative;
+		@include three-d($gray-400);
+		border-radius: spacing(2);
 
 		&--first {
 			&:before {

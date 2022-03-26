@@ -111,10 +111,20 @@
 	<nav>
 		<ul>
 			<li>
-				<a class="underline" sveltekit:prefetch href="/docs/getting-bridge" data-active={pathname.startsWith('/docs')}>Docs</a>
+				<a
+					class="underline"
+					sveltekit:prefetch
+					href="/docs/getting-bridge"
+					data-active={pathname.startsWith('/docs')}>Docs</a
+				>
 			</li>
 			<li>
-				<a class="underline" sveltekit:prefetch href="/licensing" data-active={pathname.startsWith('/licensing')}>Licensing</a>
+				<a
+					class="underline"
+					sveltekit:prefetch
+					href="/licensing"
+					data-active={pathname.startsWith('/licensing')}>Licensing</a
+				>
 			</li>
 			<li>
 				<button class="dark-mode-toggle" on:click={handleToggleDark}>
@@ -198,7 +208,10 @@
 			display: flex;
 			height: 100%;
 			align-items: center;
-			color: $gray-400;
+			color: $gray-800;
+			@include dark {
+				color: $gray-400;
+			}
 			font-weight: 700;
 			font-size: 0.8rem;
 			text-transform: uppercase;
@@ -212,7 +225,10 @@
 			&:after {
 				position: absolute;
 				content: '';
-				border-bottom: 2px solid $blue-300;
+				border-bottom: 2px solid $blue-600;
+				@include dark {
+					border-bottom: 2px solid $blue-300;
+				}
 				border-radius: 1em;
 				bottom: 1em;
 				transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
@@ -230,7 +246,10 @@
 			}
 
 			&:hover {
-				color: $gray-300;
+				color: $gray-600;
+				@include dark {
+					color: $gray-300;
+				}
 
 				&:before {
 					transform: scaleX(0.3);
@@ -240,8 +259,8 @@
 					transform: translateX(0);
 				}
 			}
-			
-      &[data-active="true"] {
+
+			&[data-active='true'] {
 				color: $gray-300;
 
 				&:before {

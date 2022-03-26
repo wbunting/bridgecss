@@ -323,7 +323,7 @@
 
 		&--left {
 			overflow: hidden;
-			background-color: $gray-700;
+			background-color: $gray-400;
 			grid-column-start: 1;
 			grid-column: span 12;
 			@include m(4);
@@ -332,6 +332,10 @@
 				grid-column-start: 1;
 				grid-column: span 5;
 				@include m(0);
+			}
+
+			@include dark {
+				background-color: $gray-700;
 			}
 
 			position: relative;
@@ -356,7 +360,7 @@
 				@include p(8);
 				margin: 0px;
 				border-radius: spacing(4);
-				background-color: $gray-800;
+				background-color: $slate-300;
 
 				.left-caption {
 					@include pt(3);
@@ -369,6 +373,10 @@
 				@include tablet {
 					display: flex;
 					padding: 0;
+				}
+
+				@include dark {
+					background-color: $gray-800;
 				}
 
 				img {
@@ -412,8 +420,6 @@
 		&--right {
 			grid-column-start: 1;
 			grid-column: span 12;
-			transform-style: preserve-3d;
-			perspective: 1000px;
 
 			@include tablet {
 				grid-column-start: 6;
@@ -424,7 +430,7 @@
 
 	.code {
 		@include glass;
-
+		border-radius: spacing(4);
 		box-shadow: 0 0 1em #000;
 
 		.window {
