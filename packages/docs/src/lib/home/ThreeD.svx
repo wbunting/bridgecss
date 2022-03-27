@@ -1,0 +1,74 @@
+```scss
+@use 'src/bridge.scss' as *;
+
+* {
+	transform-style: preserve-3d;
+	perspective: 10000px;
+}
+
+.app {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: spacing(70);
+	height: spacing(100);
+	animation: spin 10s linear infinite;
+	@keyframes spin {
+		from {
+			transform: none;
+		}
+		to {
+			transform: rotateY(1turn);
+		}
+	}
+}
+
+.cards {
+	width: spacing(60);
+	height: spacing(80);
+}
+
+.card {
+	--segments: 10;
+	--segment: calc(100% * 1 / var(--segments));
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	outline-offset: 2px;
+
+	> .segment {
+		height: var(--segment);
+	}
+}
+
+.segment {
+	height: 100%;
+	transform-origin: top center;
+	@include three-d($gray-300);
+	transform: rotateX(5deg);
+	position: relative;
+
+	> .segment {
+		top: 100%;
+	}
+}
+```
+
+
+<style lang="scss">
+@use 'src/bridge.scss' as *;
+
+pre {
+  @include text-xs;
+  background-color: transparent;
+  @include p(2);
+  border-top: 1px solid $slate-100;
+  height: spacing(100);
+}
+
+code {
+  background-color: transparent;
+}
+</style>

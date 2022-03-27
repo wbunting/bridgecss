@@ -6,6 +6,10 @@
 	import AnimationsHTML from '$lib/home/AnimationsHTML.svx';
 	import AnimationsJS from '$lib/home/AnimationsJS.svx';
 	import AnimationsSCSS from '$lib/home/AnimationsSCSS.svx';
+	import PseudoElements from '$lib/home/PseudoElements.svelte';
+	import PseudoElementsCode from '$lib/home/PseudoElements.svx';
+	import ThreeD from '$lib/home/ThreeD.svelte';
+	import ThreeDCode from '$lib/home/ThreeD.svx';
 
 	import IDE from '$lib/IDE.svelte';
 
@@ -84,11 +88,33 @@
 						{/if}
 					</svelte:fragment>
 				</IDE>
+			{:else if active === 'pseudo'}
+				<IDE>
+					<svelte:fragment slot="tabs">
+						<span class="ide-tabs">Modal.svelte</span></svelte:fragment
+					>
+					<svelte:fragment slot="content">
+						<PseudoElementsCode />
+					</svelte:fragment>
+				</IDE>
+			{:else if active === '3d'}
+				<IDE>
+					<svelte:fragment slot="tabs">
+						<span class="ide-tabs">main.scss</span></svelte:fragment
+					>
+					<svelte:fragment slot="content">
+						<ThreeDCode />
+					</svelte:fragment>
+				</IDE>
 			{/if}
 		</div>
 		<div class="feature--item-right">
 			{#if active === 'animations'}
 				<Animations />
+			{:else if active === 'pseudo'}
+				<PseudoElements />
+			{:else if active === '3d'}
+				<ThreeD />
 			{/if}
 		</div>
 	</div>
@@ -96,6 +122,11 @@
 
 <style lang="scss">
 	@use 'src/bridge.scss' as *;
+
+	.ide-tabs {
+		font-weight: 700;
+		font-family: $mono;
+	}
 
 	.selector {
 		display: flex;
