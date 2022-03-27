@@ -182,3 +182,21 @@ pre {
   }
 }
 
+
+.window-tabs {
+	display: flex;
+	align-items: center;
+	@include space-x(3);
+	@include px(3);
+	@include py(1);
+	font-family: $mono;
+
+	> :not(:last-child) {
+		@include pr(3);
+		border-right: 1px solid $gray-100;
+	}
+
+	> [data-active='true'] {
+		font-weight: 700;
+	}
+}

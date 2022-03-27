@@ -10,17 +10,19 @@
 
 	import DataProps from '$lib/home/DataProps.svx';
 	import ScopedSCSS from '$lib/home/ScopedSCSS.svx';
+
+	import IDE from '$lib/IDE.svelte';
 </script>
 
 <script lang="ts">
-	let featureTab = 'style';
+	let featureTab = 1;
 	let isDataPropsActive = false;
 
 	const handleDataPropsClick = () => {
 		isDataPropsActive = !isDataPropsActive;
 	};
 
-	const handleTabChange = (next: string) => {
+	const handleTabChange = (next: number) => {
 		featureTab = next;
 	};
 </script>
@@ -64,29 +66,31 @@
 	</div>
 
 	<div class="hero--right">
-		<div class="code">
-			<div class="window">
-				<div class="window-tabs">
-					<button
-						class="window-tab"
-						data-active={featureTab === 'style'}
-						on:click={() => handleTabChange('style')}>main.scss</button
-					>
-					<button
-						class="window-tab"
-						data-active={featureTab === 'markup'}
-						on:click={() => handleTabChange('markup')}>index.html</button
-					>
-				</div>
-				<div class="window-content">
-					{#if featureTab === 'style'}
-						<FeatureCodeStyle />
-					{:else}
-						<FeatureCode />
-					{/if}
-				</div>
-			</div>
-		</div>
+		<IDE>
+			<svelte:fragment slot="tabs">
+				<button
+					class="window-tab"
+					data-active={featureTab === 1}
+					on:click={() => handleTabChange(1)}
+				>
+					main.scss
+				</button>
+				<button
+					class="window-tab"
+					data-active={featureTab === 2}
+					on:click={() => handleTabChange(2)}
+				>
+					index.html
+				</button>
+			</svelte:fragment>
+			<svelte:fragment slot="content">
+				{#if featureTab === 1}
+					<FeatureCodeStyle />
+				{:else if featureTab === 2}
+					<FeatureCode />
+				{/if}
+			</svelte:fragment>
+		</IDE>
 	</div>
 </section>
 
@@ -425,64 +429,6 @@
 				grid-column-start: 6;
 				grid-column: span 7;
 			}
-		}
-	}
-
-	.code {
-		@include glass;
-		border-radius: spacing(4);
-		box-shadow: 0 0 1em #000;
-
-		.window {
-			display: flex;
-			position: relative;
-			width: 100%;
-			flex-direction: column;
-		}
-
-		.window-tabs {
-			display: flex;
-			align-items: center;
-			@include space-x(3);
-			@include px(3);
-			@include py(1);
-			font-family: $mono;
-
-			> :not(:last-child) {
-				@include pr(3);
-				border-right: 1px solid $gray-100;
-			}
-
-			> [data-active='true'] {
-				font-weight: 700;
-			}
-		}
-	}
-
-	@property --rotate-x {
-		syntax: '<angle>';
-		inherits: false;
-		initial-value: 0turn;
-	}
-
-	@property --rotate-y {
-		syntax: '<angle>';
-		inherits: false;
-		initial-value: 0turn;
-	}
-
-	@keyframes rotate-card {
-		from {
-			--rotate-x: 0turn;
-			--rotate-y: 0turn;
-		}
-		50% {
-			--rotate-y: -0.01turn;
-			--rotate-x: -0.01turn;
-		}
-		to {
-			--rotate-y: 0turn;
-			--rotate-x: 0turn;
 		}
 	}
 

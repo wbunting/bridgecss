@@ -22,6 +22,11 @@
 pre {
   @include glass;
   @include text-sm;
+  background-color: bg-opacity($slate-900, 0.8);
+
+  @include dark() {
+    background-color: transparent;
+  }
 }
 
 code {

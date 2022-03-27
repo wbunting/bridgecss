@@ -1,0 +1,31 @@
+```javascript
+import flip from '$lib/flip';
+
+let state = 'small';
+let container;
+
+function toggleState() {
+	state = state === 'big' ? 'small' : 'big';
+	// force update without waiting for svelte re-render
+	container.dataset.state = state;
+}
+function handleClick() {
+	flip(toggleState, container);
+}
+```
+
+<style lang="scss">
+@use 'src/bridge.scss' as *;
+
+pre {
+  @include text-xs;
+  background-color: transparent;
+  @include p(2);
+  border-top: 1px solid $slate-100;
+  height: spacing(100);
+}
+
+code {
+  background-color: transparent;
+}
+</style>

@@ -1,0 +1,37 @@
+```html
+<div class="container" on:click={handleClick} bind:this={container} data-state="big">
+	<div class="content content--small">
+		<span class="click-me">Click Me</span>
+		<div class="filler" />
+		<div class="filler filler--full" />
+		<div class="filler filler--tall" />
+	</div>
+	<div class="content content--big">
+		<span class="click-me">Click Me</span>
+		<div class="filler" />
+		<div class="filler filler--full filler--tall" />
+		<div class="filler" />
+		<div class="filler filler--full" />
+		<div class="filler" />
+		<div class="filler" />
+	</div>
+	<div class="bg" />
+</div>
+```
+
+
+<style lang="scss">
+@use 'src/bridge.scss' as *;
+
+pre {
+  @include text-xs;
+  background-color: transparent;
+  @include p(2);
+  border-top: 1px solid $slate-100;
+  height: spacing(100);
+}
+
+code {
+  background-color: transparent;
+}
+</style>
