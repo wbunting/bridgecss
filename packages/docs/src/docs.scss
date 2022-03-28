@@ -1,7 +1,7 @@
 @use 'src/bridge.scss' as *;
-@import '@fontsource/fira-mono';
+@import '~@fontsource/fira-mono/index.css';
 
-$mono: 'Fira Code';
+$mono: 'Fira Mono';
 
 code {
 	font-size: em(14, 16);
