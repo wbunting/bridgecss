@@ -1,0 +1,14 @@
+@use 'src/bridge.scss' as *;
+
+pre {
+  @include text-sm;
+  background-color: transparent;
+  @include p(2);
+  border-top: 1px solid $slate-100;
+  font-family: $mono;
+  height: spacing(100);
+}
+
+code {
+  background-color: transparent;
+}

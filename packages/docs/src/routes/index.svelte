@@ -114,6 +114,9 @@
 	<div class="feature--item">
 		<div class="feature--item-container">
 			<div class="feature--item-center">
+				<div class="circle1" />
+				<div class="circle2" />
+				<div class="circle3" />
 				<Customize />
 			</div>
 		</div>
@@ -444,5 +447,21 @@
 		border: 1px solid $slate-300;
 		border-radius: spacing(4);
 		@include p(3);
+	}
+
+	.circle1 {
+		@include circle(20%, -10%);
+	}
+
+	.circle2 {
+		@include circle(10%, 50%) {
+			@include tablet {
+				left: 300px;
+			}
+		}
+	}
+
+	.circle3 {
+		@include circle(40%, 50%);
 	}
 </style>

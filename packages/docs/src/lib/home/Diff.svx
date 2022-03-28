@@ -18,10 +18,12 @@
 
 pre {
   @include glass;
-  @include text-xs;
+  @include text-sm;
 }
 
 code {
   background-color: transparent;
 }
 </style>
+
+

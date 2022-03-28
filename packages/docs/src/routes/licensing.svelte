@@ -80,10 +80,19 @@
 			.price {
 				font-family: monospace;
 				font-size: 3rem;
+
+				&:after {
+					content: '/';
+					position: absolute;
+					top: spacing(-6);
+					right: spacing(-8);
+					font-weight: 200;
+					font-size: 70pt;
+				}
 			}
 
 			.period {
-				@include ml(3);
+				@include ml(5);
 				color: $slate-300;
 				position: absolute;
 				top: 32px;
@@ -107,13 +116,20 @@
 		}
 
 		&__buybutton {
-			background-color: $green-400;
+			@include three-d($green-400);
 			color: $green-900;
 			@include pxy(8, 3);
 			@include text-xl;
 			border-radius: spacing(2);
 			font-weight: 700;
 			@include mb(3);
+			transition-property: background-color, color;
+			transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+			transition-duration: 200ms;
+
+			&:hover {
+				@include three-d($green-300);
+			}
 		}
 
 		&__circle1 {

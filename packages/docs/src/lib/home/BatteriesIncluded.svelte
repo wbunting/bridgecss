@@ -53,6 +53,9 @@
 <div class="feature--item">
 	<div class="feature--item-container">
 		<div class="feature--item-left">
+			<div class="circle1" />
+			<div class="circle2" />
+			<div class="circle3" />
 			{#if active === 'animations'}
 				<IDE>
 					<svelte:fragment slot="tabs">
@@ -153,5 +156,21 @@
 				border: 2px solid $blue-500;
 			}
 		}
+	}
+
+	.circle1 {
+		@include circle(25%, 0%);
+	}
+
+	.circle2 {
+		@include circle(-10%, 50%) {
+			@include tablet {
+				left: 300px;
+			}
+		}
+	}
+
+	.circle3 {
+		@include circle(150%, 50%);
 	}
 </style>

@@ -4,6 +4,7 @@
 	import '../resets.scss';
 	import '../app.scss';
 	import '../prism.scss';
+	import '@fontsource/fira-mono';
 </script>
 
 <Header />

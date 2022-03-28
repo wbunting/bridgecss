@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import { afterNavigate } from '$app/navigation';
 	import { onMount } from 'svelte';
+	import '@fontsource/fira-mono';
 
 	import Case from 'case';
 

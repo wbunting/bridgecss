@@ -12,10 +12,6 @@
 }
 ```
 
-<div class="circle1" />
-<div class="circle2" />
-<div class="circle3" />
-
 <style lang="scss">
 @use 'src/bridge.scss' as *;
 
@@ -33,43 +29,4 @@ code {
   background-color: transparent;
 }
 
-.circle1 {
-  position: absolute;
-  top: 200px;
-  left: -10px;
-  content: '';
-  height: 100px;
-  width: 100px;
-  border-radius: 9999px;
-  background: $slate-600;
-  z-index: -10;
-}
-
-.circle2 {
-  position: absolute;
-  top: 10px;
-  left: 200px;
-  content: '';
-  height: 100px;
-  width: 100px;
-  border-radius: 9999px;
-  background: $slate-600;
-  z-index: -10;
-
-  @include tablet {
-    left: 300px;
-  }
-}
-
-.circle3 {
-  position: absolute;
-  top: 260px;
-  left: 200px;
-  content: '';
-  height: 100px;
-  width: 100px;
-  border-radius: 9999px;
-  background: $slate-600;
-  z-index: -10;
-}
 </style>

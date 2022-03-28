@@ -46,6 +46,9 @@
 <div class="feature--item">
 	<div class="feature--item-container">
 		<div class="feature--item-left">
+			<div class="circle1" />
+			<div class="circle2" />
+			<div class="circle3" />
 			{#if active === 'spacing'}
 				<SpacingCode />
 			{:else if active === 'colors'}
@@ -94,5 +97,21 @@
 				border: 2px solid $blue-500;
 			}
 		}
+	}
+
+	.circle1 {
+		@include circle(200px, -10px);
+	}
+
+	.circle2 {
+		@include circle(10px, 200px) {
+			@include tablet {
+				left: 300px;
+			}
+		}
+	}
+
+	.circle3 {
+		@include circle(230px, 200px);
 	}
 </style>
