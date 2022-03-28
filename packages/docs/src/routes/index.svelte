@@ -11,7 +11,8 @@
 
 	import DataPropsCode from '$lib/home/DataProps.svx';
 	import DataProps from '$lib/home/DataProps.svelte';
-	import ScopedSCSS from '$lib/home/ScopedSCSS.svx';
+	import ScopedSCSSCode from '$lib/home/ScopedSCSS.svx';
+	import ScopedSCSS from '$lib/home/ScopedSCSS.svelte';
 
 	import IDE from '$lib/IDE.svelte';
 </script>
@@ -137,12 +138,12 @@
 					as your CSS framework likes).
 				</p>
 
-				<div>
+				<div class="js-logo-bg">
 					<svg
 						id="screenshot"
 						viewBox="319 283.5 155 155"
-						width="100"
-						height="100"
+						width="75"
+						height="75"
 						version="1.1"
 						xmlns="http://www.w3.org/2000/svg"
 						xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -167,6 +168,7 @@
 			</div>
 		</div>
 	</div>
+	<div class="feature--item feature--item--small" />
 </section>
 
 <section class="feature">
@@ -237,7 +239,10 @@
 	</div>
 	<div class="feature--item">
 		<div class="feature--item-container">
-			<div class="feature--item-center">
+			<div class="feature--item-left">
+				<ScopedSCSSCode />
+			</div>
+			<div class="feature--item-right">
 				<ScopedSCSS />
 			</div>
 		</div>
@@ -245,11 +250,9 @@
 </section>
 
 <section class="topic-list">
-	<div>Getting Started</div>
-
-	<div>Customizing</div>
-
-	<div>About</div>
+	<div>
+		<a sveltekit:prefetch href="/docs/getting-bridge">Getting Started</a>
+	</div>
 </section>
 
 <style lang="scss">
@@ -279,7 +282,8 @@
 		&.topic-list {
 			display: flex;
 			flex-direction: row;
-			@include space-x(3);
+			justify-content: center;
+			@include space-x(10);
 		}
 	}
 
@@ -433,5 +437,12 @@
 
 	h3 {
 		@include text-2xl;
+	}
+
+	.js-logo-bg {
+		background-color: $slate-900;
+		border: 1px solid $slate-300;
+		border-radius: spacing(4);
+		@include p(3);
 	}
 </style>

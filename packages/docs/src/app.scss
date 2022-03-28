@@ -97,6 +97,10 @@ body {
     @include tablet {
 		  height: spacing(100);
     }
+
+    &--small {
+      height: spacing(20);
+    }
 	}
 
 	&--item-container {

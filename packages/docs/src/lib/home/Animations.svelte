@@ -1,7 +1,7 @@
 <script lang="ts">
 	import flip from '$lib/flip';
 
-	let state = 'small';
+	let state = 'big';
 	let container;
 
 	function toggleState() {
