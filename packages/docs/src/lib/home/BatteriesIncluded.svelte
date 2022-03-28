@@ -163,7 +163,7 @@
 	}
 
 	.circle2 {
-		@include circle(-10%, 50%) {
+		@include circle(-2%, 50%) {
 			@include tablet {
 				left: 300px;
 			}
