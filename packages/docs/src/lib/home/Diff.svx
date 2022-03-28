@@ -1,0 +1,27 @@
+### Diffs with BridgeCSS
+
+```diff-scss
+  .foo {
+-    @include space-x(4);
++    @include space-x(3);
+
+     background-color: $slate-500;
+
+-    color: $teal-400;
++    color: $teal-500;
+  }
+```
+
+
+<style lang="scss">
+@use 'src/bridge.scss' as *;
+
+pre {
+  @include glass;
+  @include text-xs;
+}
+
+code {
+  background-color: transparent;
+}
+</style>

@@ -55,12 +55,13 @@
 			@include glass;
 			@include pxy(8, 1);
 			height: 350px;
+			border-radius: spacing(3);
 		}
 
 		&__right {
 			position: fixed;
 			left: 0px;
-			@tablet {
+			@include tablet {
 				left: -20px;
 			}
 			top: -20px;
@@ -69,6 +70,7 @@
 			align-items: center;
 			@include glass;
 			@include pxy(20, 1);
+			border-radius: spacing(3);
 		}
 
 		&__priceperiod {

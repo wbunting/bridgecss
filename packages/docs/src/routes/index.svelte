@@ -5,7 +5,8 @@
 	import FeatureCode from '$lib/home/FeatureCode.svx';
 	import FeatureCodeStyle from '$lib/home/FeatureCodeStyle.svx';
 
-	import Paragraph from '$lib/test.svx';
+	import Diff from '$lib/home/Diff.svx';
+	import DiffBad from '$lib/home/DiffBad.svx';
 	import Customize from '$lib/customize.svx';
 
 	import DataProps from '$lib/home/DataProps.svx';
@@ -187,7 +188,10 @@
 	<div class="feature--item">
 		<div class="feature--item-container">
 			<div class="feature--item-left">
-				<Paragraph />
+				<Diff />
+			</div>
+			<div class="feature--item-right">
+				<DiffBad />
 			</div>
 		</div>
 	</div>
