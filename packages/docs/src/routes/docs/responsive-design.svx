@@ -11,14 +11,14 @@ So to target a set of devices you can write a style like:
 
 ```scss
 img {
-  width: 16px;
+  width: spacing(15);
 
   @include tablet {
-    width: 20px;
+    width: spacing(20);
   }
   
   @include desktop {
-    width: 30px;
+    width: spacing(30);
   }
 }
 ```

@@ -9,7 +9,8 @@
 	import DiffBad from '$lib/home/DiffBad.svx';
 	import Customize from '$lib/customize.svx';
 
-	import DataProps from '$lib/home/DataProps.svx';
+	import DataPropsCode from '$lib/home/DataProps.svx';
+	import DataProps from '$lib/home/DataProps.svelte';
 	import ScopedSCSS from '$lib/home/ScopedSCSS.svx';
 
 	import IDE from '$lib/IDE.svelte';
@@ -17,11 +18,6 @@
 
 <script lang="ts">
 	let featureTab = 1;
-	let isDataPropsActive = false;
-
-	const handleDataPropsClick = () => {
-		isDataPropsActive = !isDataPropsActive;
-	};
 
 	const handleTabChange = (next: number) => {
 		featureTab = next;
@@ -116,7 +112,7 @@
 	</div>
 	<div class="feature--item">
 		<div class="feature--item-container">
-			<div class="feature--item-left">
+			<div class="feature--item-center">
 				<Customize />
 			</div>
 		</div>
@@ -215,16 +211,10 @@
 	<div class="feature--item">
 		<div class="feature--item-container">
 			<div class="feature--item-left">
-				<DataProps />
+				<DataPropsCode />
 			</div>
 			<div class="feature--item-right">
-				<button class="data-props" data-active={isDataPropsActive} on:click={handleDataPropsClick}>
-					{#if isDataPropsActive}
-						Click Me
-					{:else}
-						Active
-					{/if}
-				</button>
+				<DataProps />
 			</div>
 		</div>
 	</div>
@@ -236,18 +226,18 @@
 			<div class="feature--top-container-content">
 				<span class="feature--tag">Naming is hard</span>
 
-				<h3>Tired of naming classes? Try scoped SCSS</h3>
+				<h3>Tired of naming conflicts? Try scoped SCSS</h3>
 
 				<p>
-					Some frameworks even allow you to scope your css to particular components making naming
-					classes almost irrelevant
+					Some frameworks even allow you to scope your css to particular components allowing for
+					much more flexibility in naming classes
 				</p>
 			</div>
 		</div>
 	</div>
 	<div class="feature--item">
 		<div class="feature--item-container">
-			<div class="feature--item-left">
+			<div class="feature--item-center">
 				<ScopedSCSS />
 			</div>
 		</div>
@@ -443,13 +433,5 @@
 
 	h3 {
 		@include text-2xl;
-	}
-
-	button.data-props {
-		background-color: $gray-700;
-
-		&[data-active='true'] {
-			background-color: $gray-800;
-		}
 	}
 </style>

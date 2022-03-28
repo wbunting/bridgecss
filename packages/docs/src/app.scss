@@ -110,6 +110,19 @@ body {
       height: spacing(100);
     }
 	}
+	
+  &--item-center {
+		@include px(4);
+    position: relative;
+    z-index: 10;
+		grid-column-start: 1;
+		grid-column: span 12;
+
+    @include tablet {
+      min-width: spacing(100);
+      @include mx-auto;
+    }
+	}
 
 	&--item-left {
 		@include px(4);
@@ -159,7 +172,7 @@ pre {
 
   border-radius: 0.75rem;
   @include p(3);
-  background-color: $slate-800;
+  background-color: $slate-700;
 
   code {
     background-color: transparent;

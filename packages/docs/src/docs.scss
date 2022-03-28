@@ -32,7 +32,7 @@ pre {
 
   border-radius: 0.75rem;
   padding: 1.25rem;
-  background-color: $slate-800;
+  background-color: $slate-700;
 
   code {
     background-color: transparent;
@@ -63,4 +63,8 @@ p {
 }
 
 
-
+article {
+  pre {
+    border: 1px solid $slate-600;
+  }
+}

@@ -70,12 +70,21 @@
 				},
 				{
 					name: 'Colors'
+				},
+				{
+					name: 'Opacity'
+				},
+				{
+					name: 'Prose'
 				}
 			]
 		},
 		{
 			name: 'Spacing',
 			pages: [
+				{
+					name: 'Even Spacing'
+				},
 				{
 					name: 'Padding'
 				},
@@ -89,6 +98,9 @@
 			pages: [
 				{
 					name: 'Font Size'
+				},
+				{
+					name: 'Leading'
 				}
 			]
 		},
@@ -97,6 +109,12 @@
 			pages: [
 				{
 					name: 'Shadows'
+				},
+				{
+					name: 'Glass'
+				},
+				{
+					name: '3D'
 				}
 			]
 		}
@@ -147,6 +165,8 @@
 		@include prose;
 	}
 
+	$sidebar-width: spacing(60);
+
 	main {
 		box-sizing: border-box;
 		@include px(8);
@@ -159,7 +179,7 @@
 		position: fixed;
 		display: block;
 		z-index: 20;
-		width: 19.5rem;
+		width: $sidebar-width;
 		@include pb(10);
 		@include px(8);
 		top: 3.8125rem;
@@ -230,10 +250,10 @@
 
 	.content {
 		min-height: 100vh;
-		margin-left: 19.5rem;
+		margin-left: $sidebar-width;
 
-		border-left: 1px solid $slate-800;
-		border-right: 1px solid $slate-800;
+		border-left: 1px solid bg-opacity($slate-700, 0.3);
+		border-right: 1px solid bg-opacity($slate-700, 0.3);
 
 		@include pb(20);
 

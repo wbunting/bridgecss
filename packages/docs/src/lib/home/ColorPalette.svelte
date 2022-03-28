@@ -105,8 +105,8 @@
 		border-radius: spacing(4);
 
 		@include tablet {
-			height: spacing(16);
-			width: spacing(16);
+			height: spacing(10);
+			width: spacing(10);
 		}
 
 		&--gray-100 {

@@ -23,7 +23,7 @@
 	}
 
 	.elements {
-		width: spacing(100);
+		width: spacing(80);
 		height: spacing(40);
 
 		background-clip: padding-box;
@@ -91,7 +91,7 @@
 			transform: rotateX(-10deg) rotateY(-40deg);
 		}
 		50% {
-			transform: rotateX(-5deg) rotateY(-45deg);
+			transform: rotateX(-7deg) rotateY(-42deg);
 		}
 		100% {
 			transform: rotateX(-10deg) rotateY(-40deg);
