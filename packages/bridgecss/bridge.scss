@@ -467,7 +467,7 @@ $ring-shadow: 0 0 #0000;
   code {
     font-size: em(14, 16);
     color: $white;
-    font-family: 'Fira Code VF,ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace';
+    font-family: $mono;
 
     font-weight: 600;
 
