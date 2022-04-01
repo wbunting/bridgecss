@@ -434,6 +434,11 @@ $ring-shadow: 0 0 #0000;
   @return rgba($color, $opacity);
 }
 
+@function alpha($color, $opacity) {
+  @return rgba($color, $opacity);
+}
+
+
 @function em($px, $base) {
   @return calc($px * 1em / $base)
 }
