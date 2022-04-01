@@ -262,6 +262,9 @@
 
 			&[data-active='true'] {
 				color: $gray-300;
+				@include dark {
+					color: $gray-300;
+				}
 
 				&:before {
 					transform: scaleX(0.3);

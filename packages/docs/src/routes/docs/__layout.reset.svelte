@@ -164,6 +164,18 @@
 
 	article :global {
 		@include prose;
+
+		ul {
+			li {
+				@include my(4);
+			}
+		}
+
+		li {
+			p {
+				@include my(2);
+			}
+		}
 	}
 
 	$sidebar-width: spacing(60);

@@ -26,26 +26,98 @@ Here we will give a few examples of common ways to use pseudo elements for cool 
 ```
 
 <div class="wrapper">
+<div class="menu-wrapper">
   <div class="menu">
     <div class="py-3">
       <button
         class="flex items-center w-full py-2 transition duration-150 ease-in-out hover:bg-gray-200 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
       >
-        <div class="ml-4">
-          <p class="text-sm font-medium text-gray-900">
+        <div class="logout">
             Logout
-          </p>
         </div>
       </button>
     </div>
   </div>
   <div class="arrow" />
 </div>
+</div>
+
+## Animated underline on hover
+
+```scss
+a.underline {
+	display: flex;
+	height: 100%;
+	align-items: center;
+	color: $gray-800;
+	font-weight: 700;
+	font-size: 0.8rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	text-decoration: none;
+	transition: color 0.2s linear;
+	position: relative;
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+	&:before,
+	&:after {
+		position: absolute;
+		content: '';
+		border-bottom: 2px solid $blue-600;
+		@include dark {
+			border-bottom: 2px solid $blue-300;
+		}
+		border-radius: 1em;
+		bottom: 1em;
+		transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+	}
+
+	&:before {
+		width: 1em;
+		transform-origin: left;
+	}
+
+	&:after {
+		width: 82%;
+		left: 1em;
+		transform: translateX(110%);
+	}
+
+	&:hover {
+		color: $gray-600;
+		@include dark {
+			color: $gray-300;
+		}
+
+		&:before {
+			transform: scaleX(0.3);
+		}
+
+		&:after {
+			transform: translateX(0);
+		}
+	}
+}
+```
+
+<div class="wrapper">
+<div class="underline-container">
+  <a class="underline">Hello World</a>
+</div>
+</div>
+
+
+## Custom bullet points
 
 <style lang="scss">
 @use 'src/bridge.scss' as *;
 
 .wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.menu-wrapper {
     position: relative;
 }
 
@@ -53,6 +125,12 @@ Here we will give a few examples of common ways to use pseudo elements for cool 
     height: 80px;
     width: 200px;
     background-color: $gray-300;
+    border-radius: spacing(2);
+}
+
+.logout {
+  @include pxy(1, 3);
+  color: $gray-800;
 }
 
 .arrow {
@@ -64,16 +142,78 @@ Here we will give a few examples of common ways to use pseudo elements for cool 
     &::after {
       content: " ";
       position: absolute;
+			background-color: $green-500;
       top: -4px; 
       left: 180px;
       transform: rotate(45deg);
-      width: 10px;
-      height: 10px;
-      background-color: $gray-300;
+      width: spacing(4);
+      height: spacing(4);
       box-shadow: -1px -1px 1px rgba(0, 0, 0, 0.1);
+      z-index: -1;
+			box-shadow: 0 0 spacing(3) $green-500;
     }
 }
-</style>
 
-## Animated underline
+.underline-container {
+			position: relative;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+  }
+
+	a.underline {
+		display: flex;
+		height: 100%;
+		align-items: center;
+		color: $gray-200;
+		font-weight: 700;
+		font-size: 0.8rem;
+    @include text-3xl;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		text-decoration: none;
+		transition: color 0.2s linear;
+		position: relative;
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+		&:before,
+		&:after {
+			position: absolute;
+			content: '';
+			border-bottom: 4px solid $blue-600;
+			@include dark {
+				border-bottom: 4px solid $blue-300;
+			}
+			border-radius: 1em;
+			top: 1.1em;
+			transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+		}
+
+		&:before {
+			width: 1em;
+			transform-origin: left;
+		}
+
+		&:after {
+			width: 82%;
+			left: 1em;
+			transform: translateX(110%);
+		}
+
+		&:hover {
+			color: $gray-600;
+			@include dark {
+				color: $gray-300;
+			}
+
+			&:before {
+				transform: scaleX(0.3);
+			}
+
+			&:after {
+				transform: translateX(0);
+			}
+		}
+	}
+</style>
 

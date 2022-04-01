@@ -2,18 +2,18 @@ It is very easy to style your application for dark-mode using BridgeCSS.
 
 For dark mode there are often two considerations:
 
-1) What is the user-preferred theme set to by default (if any)
+1. What is the user-preferred theme set to by default (if any)
 
-2) Is there a way to manually set the theme in the user interface
+2. Is there a way to manually set the theme in the user interface
 
-With BridgeCSS these are both achieved via single mixin `dark()`. With the `dark` mixin it will first check to see if the user has set a default color mode set, then it will look for the `data-theme` attribute. If it finds `data-theme="dark"` it will render the dark mode styles regardless of the set preference in the browser.
+With BridgeCSS these are both achieved via single mixin `dark`. With the `dark` mixin it will first check to see if the user has set a default color mode set, then it will look for the `data-theme` attribute. If it finds `data-theme="dark"` it will render the dark mode styles regardless of the set preference in the browser.
 
 To see it in action consider the following styles:
 
 ```scss
 p {
   color: $gray-800;
-  @include dark() {
+  @include dark {
     // dark mode overrides go here
     color: $gray-200;
   }

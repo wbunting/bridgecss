@@ -1,0 +1,61 @@
+
+
+We provide a utility for generating an opaque version of a given color `opaque`. For example if we want to make a given background opaque we can do soemthing like this:
+
+
+```scss
+.container {
+  background-color: alpha($blue-700, 0.2);
+}
+```
+
+And that would produce a container that looks like:
+
+<div class="wrapper">
+  <div class="wrapper__inner">
+    <div class="container">
+      <div class="container__content">Some content</div>
+    </div>
+    <div class="behind" />
+  </div>
+</div>
+
+We have placed an element behind the container to make it obvious that the container is indeed transparent
+
+<style lang="scss">
+@use 'src/bridge.scss' as *;
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+
+  &__inner{
+    position: relative;
+  }
+}
+
+
+.container {
+  background-color: bg-opacity($blue-700, 0.2);
+  @include pxy(2, 10);
+  width: spacing(100);
+  height: spacing(50);
+
+  &__content {
+    color: $gray-800
+  }
+}
+
+.behind {
+  position: absolute;
+  top: 30px;
+  left: -20px;
+  width: spacing(20);
+  height: spacing(20);
+  border-radius: 9999px;
+  z-index: -1;
+  @include three-d($gray-300);
+}
+
+
+</style>

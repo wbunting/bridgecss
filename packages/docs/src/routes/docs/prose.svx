@@ -1,0 +1,17 @@
+
+
+We have also included a `prose` mixin which when applied will affect the rendering of all common markdown elements and ensure they are in a nicely readable format on all screen sizes. You might consider using this if you are writing documentation or long-form text. In fact these very docs are written using the prose selector. In the case of these docs we apply it to an article element like:
+
+```scss
+article :global {
+	@include prose;
+}
+```
+
+The `:global` here is a special Svelte scoped SCSS syntax to indicate that the selector should apply to all the children of this component and not only this compoenent. In normal, global, SCSS usage you should just be able to target (for example) all `article` elements like:
+
+```scss
+article {
+	@include prose;
+}
+```

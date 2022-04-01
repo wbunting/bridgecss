@@ -1,5 +1,5 @@
 @use 'src/bridge.scss' as *;
-@import '~@fontsource/fira-mono/index.css';
+@import '@fontsource/fira-mono/index.css';
 
 $mono: 'Fira Mono';
 
@@ -73,4 +73,65 @@ article {
   code {
     font-family: $mono !important;
   }
+	
+  ol {
+		list-style: none;
+    counter-reset: list;
+
+		li {
+			@include pl(2);
+      counter-increment: list;
+      display: flex;
+      align-items: center;
+
+			@include dark {
+				color: $gray-400;
+			}
+
+			&::before {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include mr(4);
+        content: counter(list);
+    		color: $gray-100;
+        width: spacing(6);
+        height: spacing(6);
+        background-color: $gray-600;
+        border-radius: spacing(1);
+        font-weight: bold;
+        @include px(1);
+        @include text-sm;
+			}
+		}
+	}
+
+	ul {
+		list-style: disc;
+
+		li {
+      display: flex;
+      align-items: center;
+
+			@include dark {
+				color: $gray-400;
+			}
+
+			&::before {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include mr(4);
+        content: '>';
+    		color: $gray-100;
+        width: spacing(6);
+        height: spacing(6);
+        background-color: $gray-600;
+        border-radius: spacing(1);
+        font-weight: bold;
+        @include px(1);
+        @include text-sm;
+			}
+		}
+	}
 }

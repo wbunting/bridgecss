@@ -27,7 +27,7 @@
 			width: spacing(4);
 			height: spacing(4);
 
-			&:before {
+			&::before {
 				background-color: $green-500;
 				box-shadow: 0 0 spacing(3) $green-500;
 				content: '';
