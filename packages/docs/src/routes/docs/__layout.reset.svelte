@@ -102,9 +102,6 @@
 				},
 				{
 					name: 'Font Family'
-				},
-				{
-					name: 'Leading'
 				}
 			]
 		},
@@ -209,6 +206,7 @@
 				h1 {
 					@include mb(3);
 					font-weight: 700;
+					@include text-sm;
 					color: $slate-900;
 					text-transform: uppercase;
 					@include dark() {

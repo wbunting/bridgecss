@@ -1,0 +1,56 @@
+
+We have included a `shadow` function which makes styling simple `box-shadows` easier. You can simply pass a single number that has the same meaning of the `spacing` scale and a box-shadow will be created on that element at that scale.
+
+```scss
+.box {
+  box-shadow: shadow(1);
+}
+```
+
+<div class="feature">
+  <div class="feature__box feature__box--1">shadow(1)</div>
+  <div class="feature__box feature__box--2">shadow(2)</div> 
+  <div class="feature__box feature__box--3">shadow(3)</div> 
+  <div class="feature__box feature__box--4">shadow(4)</div> 
+</div>
+
+
+<style lang="scss">
+@use 'src/bridge.scss' as *;
+
+.feature {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  background-color: $white;
+
+  &__box {
+    @include text-sm;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $gray-800;
+    background-color: $white;
+    width: spacing(20);
+    height: spacing(20);
+    @include m(10);
+    border-radius: spacing(2);
+
+    &--1 {
+      box-shadow: shadow(1);
+    }
+    
+    &--2 {
+      box-shadow: shadow(2);
+    }
+
+    &--3 {
+      box-shadow: shadow(3);
+    }
+
+    &--4 {
+      box-shadow: shadow(4);
+    }
+  }
+}
+</style>

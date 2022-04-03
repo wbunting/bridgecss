@@ -1,0 +1,62 @@
+
+We have included an effect that makes an element appear to have a three dimensional shading. This is not an actual three dimensional css transform, rather a clever amount of shading applied to give the appearance of three dimensional rounding. It can be applied with a simple mixin `three-d` which takes an argument of the color you wish the background to be:
+
+```scss
+.btn {
+  @include three-d($green-400);
+  border-radius: spacing(4);
+  @include pxy(3, 2);
+  color: $green-900;
+}
+```
+
+<div class="feature">
+  <button class="feature__button">Click Me</button> 
+</div>
+
+Or we can look at it applied to a card:
+
+```scss
+.card {
+  @include three-d($blue-400);
+  border-radius: spacing(4);
+  height: spacing(50);
+  width: spacing(100);
+}
+```
+
+<div class="feature">
+  <div class="feature__card" />
+</div>
+
+
+<style lang="scss">
+@use 'src/bridge.scss' as *;
+
+.feature {
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  &__button {
+    @include three-d($green-400);
+    border-radius: spacing(4);
+    @include pxy(3, 2);
+    color: $green-900;
+		transition-property: background-color, color;
+		transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+		transition-duration: 200ms;
+
+    &:hover {
+      @include three-d($green-300);
+    }
+  }
+  
+  &__card {
+    @include three-d($blue-400);
+    border-radius: spacing(4);
+    height: spacing(50);
+    width: spacing(100);
+  }
+}
+</style>

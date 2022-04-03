@@ -1,0 +1,70 @@
+
+It can be somewhat tricky to build the frosted glass effect correctly, and so we have included it for convenience as a mixin in the library. If you don't use it your SASS compiler will not include it in the final stylesheet, so there is no downside to including it in the library.
+
+To use the glass mixin simply apply it to any element:
+
+```scss
+@use 'src/bridge.scss' as *;
+
+.card {
+  @include glass;
+  width: spacing(20);
+  height: spacing(12);
+}
+```
+
+This will generate a frosted glass card that looks like:
+
+<div class="feature">
+  <div class="feature__card" /> 
+</div>
+
+To make the effect a bit more obvious we will style the card a bit and add some elements behind the card so you can see the transparency effect working:
+
+
+```scss
+.card {
+  @include glass;
+  width: spacing(20);
+  height: spacing(12);
+  border-radius: spacing(4);
+}
+```
+
+<div class="feature">
+  <div class="feature__card-round" /> 
+  <div class="feature__circle1" />
+  <div class="feature__circle2" />
+</div>
+
+
+<style lang="scss">
+@use 'src/bridge.scss' as *;
+
+.feature {
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  &__card {
+    @include glass;
+    width: spacing(20);
+    height: spacing(12);
+  }
+  
+  &__card-round {
+    @include glass;
+    width: spacing(100);
+    height: spacing(60);
+    border-radius: spacing(4);
+  }
+	
+  &__circle1 {
+		@include circle(0%, 65%);
+	}
+
+	&__circle2 {
+		@include circle(40%, 25%);
+	}
+}
+</style>
