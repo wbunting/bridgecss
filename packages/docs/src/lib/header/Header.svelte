@@ -127,7 +127,7 @@
 				>
 			</li>
 			<li>
-				<button class="dark-mode-toggle" on:click={handleToggleDark}>
+				<button aria-label="Dark Mode Toggle" class="dark-mode-toggle" on:click={handleToggleDark}>
 					{#if mode === 'dark'}
 						<svg
 							fill="none"

@@ -133,7 +133,7 @@
 			<ul>
 				{#each docsIndex as section}
 					<li>
-						<h5>{section.name}</h5>
+						<h1 class="section-name">{section.name}</h1>
 						<ul>
 							{#each section.pages as item}
 								<li>
@@ -153,7 +153,7 @@
 	</div>
 	<article class="content">
 		<h3 class="section">{activePage?.section}</h3>
-		<h1>{activePage?.name}</h1>
+		<h1 class="article-title">{activePage?.name}</h1>
 		<slot />
 	</article>
 </main>
@@ -206,7 +206,7 @@
 
 		ul {
 			li {
-				h5 {
+				h1 {
 					@include mb(3);
 					font-weight: 700;
 					color: $slate-900;
