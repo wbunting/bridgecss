@@ -1,0 +1,53 @@
+We have a few built-in font-size and leadings that can be used to quickly vary the font size on various elements to add visual hierarchy. 
+
+## Font Scale
+
+<div class="scale">
+  <div class="text-2xl">Text 2XL</div>
+  <div class="text-xl">Text XL</div>
+  <div class="text-lg">Text LG</div>
+  <div class="text-base">Text Base</div>
+  <div class="text-sm">Text SM</div>
+  <div class="text-xs">Text XS</div>
+</div>
+
+```scss
+.header {
+  @include text-2xl;
+}
+```
+
+<style lang="scss">
+	@use 'src/bridge.scss' as *;
+
+  .scale {
+    display: flex;
+    justify-content: center;
+    @include ml(5);
+    flex-direction: column;
+  }
+
+  .text-2xl {
+    @include text-2xl;
+  }
+  
+  .text-xl {
+    @include text-xl;
+  }
+  
+  .text-lg {
+    @include text-lg;
+  }
+  
+  .text-base {
+    @include text-base;
+  }
+  
+  .text-sm {
+    @include text-sm;
+  }
+  
+  .text-xs {
+    @include text-xs;
+  }
+</style>

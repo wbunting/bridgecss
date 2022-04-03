@@ -1,0 +1,27 @@
+
+We have included some defaults for font-families that can be easily used to give some variation in the typography of your design.
+
+They are:
+
+| variable | value |
+|`$sans`  | ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" |
+| `$serif` |  ui-serif, Georgia, Cambria, "Times New Roman", Times, serif |
+| `$mono` | ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace |
+
+These can be used simply by assigning the font family to these variables:
+
+```scss
+.inline-code {
+    font-family: $mono
+}
+```
+
+You can easily override these defaults by creating a `bridge.scss` file and overriding the defaults:
+
+```diff-scss
+// src/bridge.scss
+
+@import 'bridgecss/bridge.scss';
+
++ $mono: "FiraCode";
+```

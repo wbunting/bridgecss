@@ -1,0 +1,30 @@
+
+A very common problem in styling Flex containers is adding even spacing on children without adding any additional spacing to the first / last child. 
+
+To address this we have a few mixins that go along with Flex and use the built-in spacing scale in Bridge. For example if your markup is a list of elements:
+
+```html
+<div class="header">
+  <div>About</div>
+  <div>Docs</div>
+  <div>Github</div>
+</div>
+
+```
+
+And you want them to be evenly spaced horizontally, you can apply the `space-x` mixin like:
+
+```scss
+.header {
+  display: flex;
+  @include space-x(4);
+}
+```
+
+Since this only works with flexbox layouts we have also included `display: flex` inside the mixin. So actually you can safely simplify the css to:
+
+```scss
+.header {
+  @include space-x(4);
+}
+```

@@ -1,1 +1,65 @@
-Margin docs
+## Basic usage
+
+### Adding margin to a single side
+
+If you want to add margin to a single side on an element you an use the mixins `pl` `pr` `pt` and `pb`. For example:
+
+```scss
+div {
+  @include ml(3);
+}
+```
+
+### Adding margin horizonatally or vertically 
+
+There are two options for adding simultaneous vertical / horizontal margin. You can either use the separate mixins `px` and `py` which will add the appropriate margin along the single dimension. Or you can use the `pxy` mixin which will add margin both horizontally and vertically.
+
+For example to add vertical-only margin:
+
+```scss
+div {
+    @include my(3);
+
+    // or
+
+    @include mxy(0, 3);
+}
+```
+
+To add both horizontal and vertical margin we can do:
+
+```scss
+div {
+    @include mxy(2, 3);
+
+    // or
+
+    @include mx(2);
+    @include my(3);
+}
+```
+
+### Adding margin to all sides
+
+To add equal margin to all sides of an element you can use the `p` mixin. For example:
+
+```scss
+div {
+    @include m(4);
+}
+```
+
+## With the `spacing` function 
+
+All margins are computed with the `spacing` function in BridgeCSS. This function computes a spacing scale that is universally respsected by the Bridge style scheme. Therefore if you want to add margin you can use that function rahter than than mixins should you desire:
+
+```scss
+div {
+  margin-left: spacing(4);
+  margin-right: spacing(4);
+}
+```
+
+The advantage to this approach is that the CSS reads more like vanilla CSS (eg. instead of hiding the selector behind the mixin). The downside is that in cases where you want to apply multiple styles (like `p`, `pxy`, `px` or `py`) you need to separate out multiple lines / calls to the `spacing` function.  
+
+Our recommendation is to try both approaches and see what feels more natural to your coding style. 

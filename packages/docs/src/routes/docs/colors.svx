@@ -1,1 +1,16 @@
-About the color palette
+
+BridgeCSS allows you to build upon the color palette from [Tailwind](https://tailwindcss.com). All normal colors from Tailwind are available.
+
+## Palette
+
+## Extending
+
+You can extend the color palette easily by adding your own classes or overriding in the scss file where you improt BridgeCSS to your project.
+
+For example if you load bridge into a file `src/bridge.scss` you can override colors like this:
+
+```scss
+// src/bridge.scss
+
+$gray-100: #FFFFFF;
+```

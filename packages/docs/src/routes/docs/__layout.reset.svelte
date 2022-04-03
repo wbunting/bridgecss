@@ -101,6 +101,9 @@
 					name: 'Font Size'
 				},
 				{
+					name: 'Font Family'
+				},
+				{
 					name: 'Leading'
 				}
 			]

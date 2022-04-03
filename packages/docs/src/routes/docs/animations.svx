@@ -1,1 +1,69 @@
-Animations
+<script lang="ts">
+	import Animations from '$lib/home/Animations.svelte';
+	import AnimationsHTML from '$lib/home/AnimationsHTML.svx';
+	import AnimationsJS from '$lib/home/AnimationsJS.svx';
+	import AnimationsSCSS from '$lib/home/AnimationsSCSS.svx';
+	import IDE from '$lib/IDE.svelte';
+
+	let animationsTab = 1;
+
+	function handleTabChange(next) {
+		animationsTab = next;
+	}
+</script>
+
+With BridgeCSS you can easily create engaging custom animations without a ton of utiltiy classes / ejecting out of utiltiy-frist to create keyframes.
+
+For example, we will create an interactive animation that transitions between two UI states. You could take this example and incorporate it for example when a user logs in to change the view between the registration screen and a welcome modal etc.
+
+<IDE>
+	<svelte:fragment slot="tabs">
+		<button
+			class="window-tab"
+			data-active={animationsTab === 1}
+			on:click={() => handleTabChange(1)}
+		>
+			main.scss
+		</button>
+		<button
+			class="window-tab"
+			data-active={animationsTab === 2}
+			on:click={() => handleTabChange(2)}
+		>
+			index.html
+		</button>
+		<button
+			class="window-tab"
+			data-active={animationsTab === 3}
+			on:click={() => handleTabChange(3)}
+		>
+			index.js
+		</button>
+	</svelte:fragment>
+	<svelte:fragment slot="content">
+		{#if animationsTab === 1}
+			<AnimationsSCSS />
+		{:else if animationsTab === 2}
+			<AnimationsHTML />
+		{:else if animationsTab === 3}
+			<AnimationsJS />
+		{/if}
+	</svelte:fragment>
+</IDE>
+
+<div class="animations-wrapper">
+  <Animations />
+</div>
+
+<style lang="scss">
+	@use 'src/bridge.scss' as *;
+
+  .animations-wrapper {
+    @include my(10);
+  }
+
+	.ide-tabs {
+		font-weight: 700;
+		font-family: $mono;
+	}
+</style>
