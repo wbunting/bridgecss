@@ -426,6 +426,26 @@ $rose-800: #9f1239;
 $rose-900: #881337;
 $black: #000000;
 
+@function shadow($size) {
+  @return 0 spacing($size) spacing(calc($size * 1.5)) spacing(calc(-1 * $size / 4)) rgb(0 0 0 / 0.1), 0 spacing(calc($size / 2)) spacing($size) spacing(calc(-1 * $size / 2)) rgb(0 0 0 / 0.1)
+}
+
+@mixin three-d($color) {
+	background-color: $color;
+	box-shadow: 0px 4px 4px bg-opacity($black, 0.25),
+		inset -4px -4px 10px bg-opacity($black, 0.25), inset 0px 4px 4px bg-opacity($color, 0.25);
+}
+
+@mixin glass {
+  background: linear-gradient(123deg, rgba(255, 255, 255, 0.2) 12.75%, rgba(255, 255, 255, 0.1) 68.03%);
+  box-shadow: 0px 4px 24px -1px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  position: relative;
+  // force GPU rendering 
+   -webkit-transform:translate3d(0,0,0);
+}
+
 
 $ring-offset-shadow: 0 0 #0000;
 $ring-shadow: 0 0 #0000;
