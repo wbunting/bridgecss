@@ -2,6 +2,9 @@
 	import { page } from '$app/stores';
 	import { afterNavigate } from '$app/navigation';
 	import Github from '$lib/icons/Github.svelte';
+	import Logo from '$lib/Logo.svelte';
+	import DotsVertical from '$lib/icons/DotsVertical.svelte';
+	import Close from '$lib/icons/Close.svelte';
 
 	import { onMount } from 'svelte';
 
@@ -9,9 +12,11 @@
 
 	let mode: string;
 	let pathname = $page.url.pathname;
+	let showMenu: boolean = false;
 
 	afterNavigate(() => {
 		pathname = $page.url.pathname;
+		showMenu = false;
 	});
 
 	onMount(() => {
@@ -36,6 +41,10 @@
 			mode = 'dark';
 		}
 	};
+
+	const handleToggleMenu = () => {
+		showMenu = !showMenu;
+	};
 </script>
 
 <header data-sticky={sticky}>
@@ -43,65 +52,9 @@
 		<h1>
 			<a href="/">
 				<div class="logo">
-					<svg
-						id="screenshot"
-						viewBox="99.33578643762691 -206.9142135623731 186.3284271247462 120.82842712474618"
-						width="186.3284271247462"
-						height="120.82842712474618"
-						version="1.1"
-						xmlns="http://www.w3.org/2000/svg"
-						xmlns:xlink="http://www.w3.org/1999/xlink"
-						style="-webkit-print-color-adjust: exact;"
-						><g id="shape-fd00f260-a68d-11ec-857d-5760b965b696"
-							><g id="shape-bfa03570-a68d-11ec-857d-5760b965b696"
-								><g id="shape-4b94df51-a68d-11ec-857d-5760b965b696"
-									><path
-										d="M126.75,-135.26470588235293L126.75,-115.5L170.75,-151.5L126.75,-135.26470588235293Z"
-										style="fill: rgb(200, 226, 190); fill-opacity: 1;"
-									/></g
-								><g id="shape-9eb340f0-a68d-11ec-857d-5760b965b696"
-									><path
-										d="M127.75,-188.5L127.75,-87.5L100.75,-87.5L100.75,-188.5L112.75,-205.5L127.75,-188.5ZL100.75,-188.5"
-										style="fill: rgb(200, 226, 190); fill-opacity: 1;"
-									/></g
-								><g id="shape-b6e73cd0-a68d-11ec-857d-5760b965b696"
-									><rect
-										rx="0"
-										ry="0"
-										x="126.25"
-										y="-182"
-										transform="matrix(1,0,0,1,0,0)"
-										width="66"
-										height="8"
-										style="fill: rgb(200, 226, 190); fill-opacity: 1;"
-									/></g
-								></g
-							><g id="shape-c0c92510-a68d-11ec-857d-5760b965b696"
-								><g id="shape-c0c92511-a68d-11ec-857d-5760b965b696"
-									><path
-										d="M258.25,-135.26470588235293L258.25,-115.5L214.25,-151.5L258.25,-135.26470588235293Z"
-										style="fill: rgb(200, 226, 190); fill-opacity: 1;"
-									/></g
-								><g id="shape-c0c92512-a68d-11ec-857d-5760b965b696"
-									><path
-										d="M257.25,-188.5L257.25,-87.5L284.25,-87.5L284.25,-188.5L272.25,-205.5L257.25,-188.5ZL284.25,-188.5"
-										style="fill: rgb(200, 226, 190); fill-opacity: 1;"
-									/></g
-								><g id="shape-c0c92513-a68d-11ec-857d-5760b965b696"
-									><rect
-										rx="0"
-										ry="0"
-										x="191.25"
-										y="-182"
-										transform="matrix(-1,0,0,1,448.5,0)"
-										width="66"
-										height="8"
-										style="fill: rgb(200, 226, 190); fill-opacity: 1;"
-									/></g
-								></g
-							></g
-						></svg
-					>
+					<div class="logo__icon">
+						<Logo />
+					</div>
 					<span>BridgeCSS</span>
 				</div>
 			</a>
@@ -110,7 +63,7 @@
 
 	<nav>
 		<ul>
-			<li>
+			<li class="mobile-hide">
 				<a
 					class="underline"
 					sveltekit:prefetch
@@ -118,7 +71,7 @@
 					data-active={pathname.startsWith('/docs')}>Docs</a
 				>
 			</li>
-			<li>
+			<li class="mobile-hide">
 				<a
 					class="underline"
 					sveltekit:prefetch
@@ -157,14 +110,45 @@
 					{/if}
 				</button>
 			</li>
-			<li>
+			<li class="mobile-hide">
 				<a href="https://github.com/wbunting/bridgecss">
 					<Github />
 				</a>
 			</li>
+			<li class="mobile-menu">
+				<button on:click={handleToggleMenu}>
+					<DotsVertical />
+				</button>
+			</li>
 		</ul>
 	</nav>
 </header>
+
+{#if showMenu}
+	<div class="dialog">
+		<div class="dialog__container">
+			<div class="dialog__overlay" />
+			<div class="dialog__content">
+				<div class="dialog__header">
+					<button on:click={handleToggleMenu}>
+						<Close />
+					</button>
+				</div>
+				<div class="dialog__links">
+					<a
+						sveltekit:prefetch
+						href="/docs/getting-bridge"
+						data-active={pathname.startsWith('/docs')}>Docs</a
+					>
+					<a sveltekit:prefetch href="/licensing" data-active={pathname.startsWith('/licensing')}
+						>Licensing</a
+					>
+					<a href="https://github.com/wbunting/bridgecss">Github</a>
+				</div>
+			</div>
+		</div>
+	</div>
+{/if}
 
 <style lang="scss">
 	@use 'src/bridge.scss' as *;
@@ -173,11 +157,74 @@
 		font-size: 16pt;
 	}
 
+	.dialog {
+		position: fixed;
+		z-index: 10;
+		overflow-y: auto;
+		@include inset-0;
+
+		&__container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+		}
+
+		&__overlay {
+			position: fixed;
+			background-color: alpha($black, 0.3);
+			@include inset-0;
+			z-index: 0;
+			backdrop-filter: blur(10px);
+		}
+
+		&__content {
+			display: relative;
+			z-index: 20;
+			box-shadow: shadow(3);
+			background-color: $gray-700;
+			color: $white;
+			min-width: 80%;
+			border-radius: spacing(4);
+			@include p(10);
+		}
+
+		&__header {
+			display: flex;
+			justify-content: flex-end;
+		}
+
+		&__links {
+			display: flex;
+			flex-direction: column;
+			@include space-y(5);
+			font-weight: bold;
+			@include text-lg;
+		}
+	}
+
+	.mobile-menu {
+		@include tablet {
+			display: none;
+		}
+	}
+
+	svg {
+		width: spacing(6);
+		height: spacing(6);
+	}
+
 	.logo {
 		display: flex;
 		align-items: center;
 		@include space-x(2);
 		@include text-sm;
+
+		&__icon {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
 
 		@include tablet {
 			@include text-lg;
@@ -282,11 +329,6 @@
 		align-items: center;
 	}
 
-	svg {
-		width: spacing(6);
-		height: spacing(6);
-	}
-
 	ul {
 		position: relative;
 		padding: 0;
@@ -308,6 +350,14 @@
 			height: 100%;
 			display: flex;
 			align-items: center;
+		}
+	}
+
+	.mobile-hide {
+		display: none;
+
+		@include tablet {
+			display: flex;
 		}
 	}
 </style>

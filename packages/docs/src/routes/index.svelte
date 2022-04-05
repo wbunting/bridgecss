@@ -254,7 +254,20 @@
 
 <section class="topic-list">
 	<div>
+		<h3>Introduction</h3>
 		<a sveltekit:prefetch href="/docs/getting-bridge">Getting Started</a>
+		<a sveltekit:prefetch href="/docs/installing-scss">Installing SCSS</a>
+	</div>
+	<div>
+		<h3>Core Features</h3>
+		<a sveltekit:prefetch href="/docs/dark-mode">Dark Mode</a>
+		<a sveltekit:prefetch href="/docs/responsive-design">Responsive Design</a>
+		<a sveltekit:prefetch href="/docs/psuedo-elements">Pseudo Elements</a>
+		<a sveltekit:prefetch href="/docs/animations">Animations</a>
+	</div>
+	<div>
+		<h3>External Links</h3>
+		<a href="https://github.com/wbunting/bridgecss">Github</a>
 	</div>
 </section>
 
@@ -284,9 +297,38 @@
 
 		&.topic-list {
 			display: flex;
-			flex-direction: row;
+			flex-direction: column;
 			justify-content: center;
-			@include space-x(10);
+			@include px(5);
+			@include space-y(3);
+
+			@include tablet {
+				flex-direction: row;
+				@include space-x(40);
+				@include px(0);
+				@include space-y(0);
+			}
+
+			h3 {
+				@include text-base;
+				font-weight: bold;
+				color: $gray-200;
+			}
+
+			div {
+				@include text-sm;
+				display: flex;
+				flex-direction: column;
+				@include space-y(2);
+
+				a {
+					color: $gray-400;
+
+					&:hover {
+						color: $gray-300;
+					}
+				}
+			}
 		}
 	}
 
