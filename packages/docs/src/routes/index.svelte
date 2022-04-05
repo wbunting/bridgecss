@@ -262,7 +262,7 @@
 		<h3>Core Features</h3>
 		<a sveltekit:prefetch href="/docs/dark-mode">Dark Mode</a>
 		<a sveltekit:prefetch href="/docs/responsive-design">Responsive Design</a>
-		<a sveltekit:prefetch href="/docs/psuedo-elements">Pseudo Elements</a>
+		<a sveltekit:prefetch href="/docs/pseudo-elements">Pseudo Elements</a>
 		<a sveltekit:prefetch href="/docs/animations">Animations</a>
 	</div>
 	<div>
