@@ -27,37 +27,203 @@ The nice aspect of this compared to the utility-first style is that you can grou
 
 Here is an example of how you can dynamically adjust the layout depending on the screen size. (grab the handle on the right size to resize)
 
-*** Example ***
+<script lang="ts">
+  let handle;
+  let width = '800px';
+  let SIDEBAR_WIDTH = 292
+  let size = 'tablet'
+  function onMouseMove ({clientX, clientY}) {
+    const nextSize = clientX - SIDEBAR_WIDTH;
+    if (nextSize < (520 + 80)) {
+      size = 'mobile'
+    } else {
+      size = 'tablet'
+    }
+    width = `${nextSize}px`;
+  }
+  function onMouseDown (event) {
+    addEventListener('mousemove', onMouseMove)
+    addEventListener('mouseup', onMouseUp)
+  }
+  function onMouseUp () {
+    removeEventListener('mousemove', onMouseMove)
+    removeEventListener('mouseup', onMouseUp)
+  }
+</script>
+
+<div class="stage" style={`--width: ${width}`}>
+  <div class="container" data-size={size}>
+    <div class="container__wrapper">
+      <div class="container__image_wrapper">
+        <img src="https://images.unsplash.com/photo-1624122403892-d44751de056e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" alt="Man looking at item at a store">
+      </div>
+      <div class="container__caption">
+        <div class="container__caption_title">New In</div>
+        <a href="#" class="container__caption_link">Meticulously crafted hats</a>
+        <p class="container__caption_p">We have gone through painstaiking efforts to source hats from the most skilled hatmakers in the world.</p>
+      </div>
+    </div>
+  </div>
+  <div class="stage__handle" on:mousedown={onMouseDown} bind:this={handle} />
+</div>
 
 ```svelte
-<div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-  <div class="md:flex">
-    <div class="md:shrink-0">
-      <img class="h-48 w-full object-cover md:h-full md:w-48" src="/img/store.jpg" alt="Man looking at item at a store">
+<div class="container">
+  <div class="container__wrapper">
+    <div class="container__image_wrapper">
+      <img src="/static/images/hatshop.png" alt="Nice looking hat shop">
     </div>
-    <div class="p-8">
-      <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
-      <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers for your new business</a>
-      <p class="mt-2 text-slate-500">Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>
+    <div class="container__caption">
+      <div class="container__caption_title">New In</div>
+      <a href="#" class="container__caption_link">Meticulously crafted hats</a>
+      <p class="container__caption_p">We have gone through painstaiking efforts to source hats from the most skilled hatmakers in the world.</p>
     </div>
   </div>
 </div>
 
 <style lang="scss">
-div {
-    div {
-        .photo {
+  .container {
+    @include mx-auto;
+    background-color: white;
+    border-radius: spacing(4);
+    box-shadow: shadow(4);
 
-          }
-
-        .caption {
-
-        }
+    &__wrapper {
+      @include tablet {
+        display: flex;
+      }
     }
-}
+    
+    &__image_wrapper {
+      @include tablet {
+        flex-shrink: 0;
+      }
+    }
+
+    &__caption {
+      @include p(8);
+    }
+
+    &__caption_title {
+      text-transform: uppercase;
+      letter-spacing: 0.025em;
+      @include text-sm;
+      color: $indigo-500;
+      font-weight: 500;
+    }
+    
+    &__caption_link {
+      display: block;
+      @include mt(1);
+      @include text-lg;
+      letter-spacing: -0.025em;
+      color: $black;
+
+      &:hover {
+        text-decoration-line: underline;
+      }
+    }
+    
+    &__caption_p {
+      @include mt(2);
+      color: $slate-500;
+    }
+
+    img {
+      height: spacing(20);
+      width: 100%;
+      object-fit: cover; 
+
+      @include tablet {
+        height: 100%;
+        width: spacing(20);
+      }
+    }
+  }
 </style>
 ```
 
 ## Mobile First
 
 Since the breakpoints are defined with `min-width` BridgeCSS is naturally mobile first. Eg. using the `@include tablet` selector will then only apply above a certain width. 
+
+
+<style lang="scss">
+  @use 'src/bridge.scss' as *;
+
+  .stage {
+    @include pxy(10, 20);
+    @include mxy(5, 10);
+    background-color: $gray-800;
+    border-radius: spacing(4);
+    position: relative;
+    width: var(--width);
+
+    &__handle {
+      position: absolute;
+      right: spacing(-4);
+      top: spacing(40);
+      height: spacing(15);
+      width: spacing(2);
+      border-radius: spacing(10);
+      background-color: $gray-600;
+    }
+  }
+
+  .container {
+    @include mx-auto;
+    background-color: $white;
+    border-radius: spacing(4);
+    box-shadow: shadow(4);
+    overflow: hidden;
+    user-select: none;
+
+    &[data-size='tablet'] .container__wrapper {
+        display: flex;
+    }
+    &[data-size='tablet'] .container__image_wrapper {
+        flex-shrink: 0;
+        display: flex;
+    }
+
+    &__caption {
+      @include p(8);
+    }
+
+    &__caption_title {
+      text-transform: uppercase;
+      letter-spacing: 0.025em;
+      @include text-sm;
+      color: $indigo-500;
+      font-weight: 500;
+    }
+    
+    &__caption_link {
+      display: block;
+      @include mt(1);
+      @include text-lg;
+      letter-spacing: -0.025em;
+      color: $black;
+
+      &:hover {
+        text-decoration-line: underline;
+      }
+    }
+    
+    &__caption_p {
+      @include mt(2);
+      color: $slate-500;
+    }
+
+    img {
+      height: spacing(48);
+      width: 100%;
+      object-fit: cover; 
+
+      [data-size="tablet"] {
+        height: 100%;
+        width: spacing(48);
+      }
+    }
+  }
+</style>

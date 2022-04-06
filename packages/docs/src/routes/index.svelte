@@ -294,39 +294,38 @@
 			@include mt(3);
 			@include mb(3);
 		}
+	}
 
-		&.topic-list {
+	.topic-list {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		@include px(5);
+		@include space-y(3);
+
+		@include tablet {
+			flex-direction: row;
+			@include space-x(40);
+			@include px(0);
+		}
+
+		h3 {
+			@include text-base;
+			font-weight: bold;
+			color: $gray-200;
+		}
+
+		div {
+			@include text-sm;
 			display: flex;
 			flex-direction: column;
-			justify-content: center;
-			@include px(5);
-			@include space-y(3);
+			@include space-y(2);
 
-			@include tablet {
-				flex-direction: row;
-				@include space-x(40);
-				@include px(0);
-				@include space-y(0);
-			}
+			a {
+				color: $gray-400;
 
-			h3 {
-				@include text-base;
-				font-weight: bold;
-				color: $gray-200;
-			}
-
-			div {
-				@include text-sm;
-				display: flex;
-				flex-direction: column;
-				@include space-y(2);
-
-				a {
-					color: $gray-400;
-
-					&:hover {
-						color: $gray-300;
-					}
+				&:hover {
+					color: $gray-300;
 				}
 			}
 		}
