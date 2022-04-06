@@ -28,13 +28,23 @@ The nice aspect of this compared to the utility-first style is that you can grou
 Here is an example of how you can dynamically adjust the layout depending on the screen size. (grab the handle on the right size to resize)
 
 <script lang="ts">
+	import { onMount } from 'svelte'
+
+  let isMobile = false;
+  let width;
+  onMount(() => {
+    if (document.body.clientWidth <= 768) {
+      isMobile = true;
+    }
+    width = isMobile ? '400px': '800px';
+  })
+
   let handle;
-  let width = '800px';
   let SIDEBAR_WIDTH = 292
   let size = 'tablet'
   function onMouseMove ({clientX, clientY}) {
     const nextSize = clientX - SIDEBAR_WIDTH;
-    if (nextSize < (520 + 80)) {
+    if (nextSize < ((isMobile ? 250 : 520) + 80)) {
       size = 'mobile'
     } else {
       size = 'tablet'
