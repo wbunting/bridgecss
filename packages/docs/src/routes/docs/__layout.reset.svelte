@@ -216,12 +216,18 @@
 
 				ul {
 					@include space-y(2);
-					border-left: 1px solid $slate-800;
+					border-left: 1px solid $slate-500;
+					@include dark {
+						border-left: 1px solid $slate-800;
+					}
 
 					li {
 						a {
 							@include pl(4);
-							color: $slate-400;
+							color: $slate-800;
+							@include dark {
+								color: $slate-400;
+							}
 							transition: color 0.2s linear;
 							position: relative;
 							clip-path: polygon(-1px -1px, 100% 0, 120% 120%, -10% 200%);
@@ -252,9 +258,13 @@
 
 						a[data-active='true'] {
 							font-weight: 600;
-							color: $sky-400;
+							color: $sky-700;
+							border-left: 1px solid $sky-700;
+							@include dark {
+								color: $sky-400;
+								border-left: 1px solid $sky-400;
+							}
 							margin-left: -1px;
-							border-left: 1px solid $sky-400;
 						}
 					}
 				}
@@ -274,7 +284,11 @@
 		h3.section {
 			text-transform: uppercase;
 			@include text-sm();
-			color: $sky-400;
+			color: $sky-700;
+
+			@include dark {
+				color: $sky-400;
+			}
 		}
 	}
 </style>
