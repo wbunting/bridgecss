@@ -1,1 +1,55 @@
-About state selectors like :hover and :focus
+
+BridgeCSS plays well with SCSS state selectors to enable things like hover / focus manipulations. 
+
+To give an example consider a very common piece of user interface, a hoverable link. We can style the hover state using some of the color variables that we define, and even give it a bit of an animated fade between the default and active colors.
+
+<div class="container">
+  <a href="#">Here</a>
+</div>
+
+```scss
+a {
+  color: $blue-500;
+  @include text-2xl;
+  font-weight: bold;
+  background-color: $blue-100;
+  @include pxy(2, 1);
+	transition: color 0.2s linear;
+  border-radius: spacing(2);
+
+  &:hover {
+    color: $blue-600;
+    background-color: $blue-200;
+  }
+}
+```
+
+# Compared with utility first
+
+In the utility first way of doing things every class name that applies to the hover state repeats the `hover:` prefix instead of in our case where you can simply group all of those styles under the `:hover` pseudo selector (as in normal CSS).
+
+
+<style lang="scss">
+@use 'src/bridge.scss' as *;
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+a {
+  color: $blue-500;
+  @include text-2xl;
+  font-weight: bold;
+  background-color: $blue-100;
+  @include pxy(2, 1);
+	transition: color 0.2s linear;
+  border-radius: spacing(2);
+
+  &:hover {
+    color: $blue-600;
+    background-color: $blue-200;
+  }
+}
+</style>
+

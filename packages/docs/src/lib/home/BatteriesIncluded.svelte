@@ -139,8 +139,10 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+			justify-content: center;
 			border-radius: spacing(5);
 			padding: 0;
+			margin: 0;
 			border: 2px solid $slate-500;
 
 			height: spacing(20);
@@ -149,7 +151,8 @@
 			@include tablet {
 				height: spacing(28);
 				width: spacing(28);
-				border-radius: spacing(7);
+				overflow: hidden;
+				border-radius: spacing(8);
 			}
 
 			&[data-active='true'] {

@@ -95,9 +95,9 @@ a.underline {
 ```
 
 <div class="wrapper">
-<div class="underline-container">
-  <a class="underline">Hello World</a>
-</div>
+  <div class="underline-container">
+    <a class="underline">Hello World</a>
+  </div>
 </div>
 
 
@@ -142,9 +142,98 @@ ol {
 1. This example bullet
 2. Second example
 
+## Typewriter 
+
+A somewhat common effect on websites that feature code show a typewriter animation. This can be achieved in pure CSS as long as you know the number of characters in advance (otherwise you'll need to calculate that in javascript)
+
+```scss
+.typewriter {
+  font-family: 'Fira Mono';
+  position: relative;
+  width: max-content;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &::before {
+    background: $slate-900;
+    animation: typewriter 6s steps(29) 1s forwards;
+  }
+
+  &::after {
+    width: spacing(1);
+    background: $white;
+    animation: typewriter 6s steps(29) 1s forwards,
+               blink 700ms steps(29) infinite;
+  }
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
+```
+
+<div class="wrapper">
+  <h1 class="typewriter">Hello, World. See typing font</h1>
+</div>
 
 <style lang="scss">
 @use 'src/bridge.scss' as *;
+
+.typewriter {
+  font-family: 'Fira Mono';
+  position: relative;
+  width: max-content;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+
+  &::before {
+    background: $slate-900;
+    animation: typewriter 6s steps(29) 1s forwards;
+  }
+
+  &::after {
+    width: spacing(1);
+    background: $white;
+    animation: typewriter 6s steps(29) 1s forwards,
+               blink 700ms steps(29) infinite;
+  }
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes blink {
+  to {
+    background: transparent;
+  }
+}
 
 .wrapper {
     display: flex;

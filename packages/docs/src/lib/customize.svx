@@ -15,6 +15,12 @@
 pre {
   @include glass;
   @include text-sm;
+
+  background-color: alpha($slate-900, 0.7);
+
+  @include dark {
+    background-color: transparent;
+  }
 }
 
 code {

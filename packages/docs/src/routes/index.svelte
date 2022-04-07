@@ -297,6 +297,7 @@
 	}
 
 	.topic-list {
+		@include mt(70);
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -312,7 +313,10 @@
 		h3 {
 			@include text-base;
 			font-weight: bold;
-			color: $gray-200;
+
+			@include dark {
+				color: $gray-200;
+			}
 		}
 
 		div {
@@ -322,7 +326,11 @@
 			@include space-y(2);
 
 			a {
-				color: $gray-400;
+				color: $gray-600;
+
+				@include dark {
+					color: $gray-400;
+				}
 
 				&:hover {
 					color: $gray-300;
@@ -355,6 +363,14 @@
 
 		@include tablet {
 			@include px(0);
+		}
+
+		p {
+			color: $slate-700;
+
+			@include dark {
+				color: $slate-400;
+			}
 		}
 	}
 
@@ -405,8 +421,8 @@
 			figure {
 				@include p(8);
 				margin: 0px;
-				border-radius: spacing(4);
-				background-color: $slate-300;
+				color: $slate-900;
+				background-color: $slate-400;
 
 				.left-caption {
 					@include pt(3);
@@ -446,7 +462,7 @@
 
 				figcaption {
 					.author {
-						color: $sky-500;
+						color: $sky-100;
 						@include mb(1);
 						@include dark() {
 							color: $sky-400;

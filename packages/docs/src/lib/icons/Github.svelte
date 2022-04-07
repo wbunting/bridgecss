@@ -10,7 +10,11 @@
 	svg {
 		height: spacing(5);
 		width: spacing(5);
-		color: $gray-100;
+		color: $gray-900;
 		fill: currentColor;
+
+		@include dark {
+			color: $gray-100;
+		}
 	}
 </style>

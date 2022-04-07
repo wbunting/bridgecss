@@ -16,6 +16,8 @@
 		@include glass;
 		border-radius: spacing(4);
 		box-shadow: 0 0 1em #000;
+		background-color: $slate-900;
+		color: $slate-200;
 
 		.window {
 			display: flex;
