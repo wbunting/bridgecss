@@ -498,8 +498,12 @@ $ring-shadow: 0 0 #0000;
   }
   code {
     font-size: em(14, 16);
-    color: $white;
+    color: $green-500;
     font-family: $mono;
+
+    @include dark {
+      color: $white;
+    }
 
     font-weight: 600;
 
