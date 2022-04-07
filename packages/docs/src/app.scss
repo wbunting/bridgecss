@@ -228,3 +228,16 @@ pre {
   	color: $gray-100;
   }
 }
+
+
+.license-tag {
+	@include text-lg;
+	@include py(4);
+	@include mb(8);
+	color: $slate-800;
+
+	@include dark {
+		color: $slate-300;
+	}
+}
+

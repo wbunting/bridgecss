@@ -32,17 +32,11 @@
 <style lang="scss">
 	@use 'src/bridge.scss' as *;
 
-	.license-tag {
-		@include text-lg;
-		@include py(4);
-		@include mb(8);
-		color: $slate-300;
-	}
-
 	.price-cards {
 		display: flex;
 		position: relative;
 		flex-direction: column;
+		color: $slate-300;
 
 		@include tablet {
 			flex-direction: row;
@@ -52,10 +46,17 @@
 			display: flex;
 			flex-direction: column;
 			align-items: center;
+
 			@include glass;
 			@include pxy(8, 1);
 			height: 350px;
 			border-radius: spacing(3);
+
+			background-color: alpha($slate-900, 0.7);
+
+			@include dark {
+				background-color: transparent;
+			}
 		}
 
 		&__right {
@@ -71,6 +72,11 @@
 			@include glass;
 			@include pxy(20, 1);
 			border-radius: spacing(3);
+			background-color: alpha($slate-900, 0.7);
+
+			@include dark {
+				background-color: transparent;
+			}
 		}
 
 		&__priceperiod {
@@ -80,6 +86,7 @@
 			.price {
 				font-family: monospace;
 				font-size: 3rem;
+				color: $slate-300;
 
 				&:after {
 					content: '/';

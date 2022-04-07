@@ -308,7 +308,7 @@
 			}
 
 			&[data-active='true'] {
-				color: $gray-300;
+				color: $gray-100;
 				@include dark {
 					color: $gray-300;
 				}
