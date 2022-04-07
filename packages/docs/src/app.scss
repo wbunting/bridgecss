@@ -216,3 +216,15 @@ pre {
 		font-weight: 700;
 	}
 }
+
+.github {
+  height: spacing(5);
+  width: spacing(5);
+  color: $gray-900;
+  fill: currentColor;
+  stroke: currentColor;
+  
+  @include dark {
+  	color: $gray-100;
+  }
+}

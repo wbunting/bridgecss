@@ -424,6 +424,10 @@
 				color: $slate-900;
 				background-color: $slate-400;
 
+				@include dark {
+					color: $slate-100;
+				}
+
 				.left-caption {
 					@include pt(3);
 
