@@ -1,6 +1,7 @@
 {
   "name": "docs",
   "version": "0.0.1",
+  "license": "GPLv3",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",

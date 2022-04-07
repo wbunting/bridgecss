@@ -11,8 +11,8 @@
     "*.css"
   ],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
+  "license": "GPLv3",
+  "devDependencies": {
     "node-sass": "^7.0.1"
   }
 }
