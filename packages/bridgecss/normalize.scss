@@ -1,4 +1,4 @@
-@use "./bridge.scss";
+@use "./bridge.scss" as *;
 
 *, ::before, ::after { box-sizing: border-box; }
 
@@ -64,9 +64,6 @@
   @include text-xl;
 }
 
-:where(h3, h4, h5, h6, dt) {
-  max-inline-size: 35ch;
-}
 
 :where(p, ul, ol, dl, h6) {
   @include text-base;
@@ -188,8 +185,6 @@
 
 :where(ol, ul) { padding-inline-start: spacing(8) }
 :where(li) { padding-inline-start: spacing(2) }
-:where(li, dd, figcaption) { max-inline-size: spacing(2) }
-:where(p) { max-inline-size: spacing(3) }
 :where(dt, summary) { font-weight: 700 }
 
 :where(dt:not(:first-of-type)) {
@@ -198,7 +193,6 @@
 
 :where(small) {
   @include text-xs;
-  max-inline-size: spacing(1);
 }
 
 :where(hr) {
@@ -226,7 +220,6 @@
   gap: spacing(3);
   padding-block: spacing(3);
   padding-inline: spacing(4);
-  max-inline-size: spacing(2);
 }
 
 :where(:not(blockquote) > cite) {
