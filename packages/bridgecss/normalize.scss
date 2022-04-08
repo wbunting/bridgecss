@@ -1,0 +1,298 @@
+@use "./bridge.scss";
+
+*, ::before, ::after { box-sizing: border-box; }
+
+:where(:not(dialog)) {
+  margin: 0;
+}
+
+:where(:not(fieldset, progress, meter)) {
+  border-width: 0;
+  border-style: solid;
+  background-origin: border-box;
+  background-repeat: no-repeat;
+}
+
+:where(html) {
+  block-size: 100%;
+  font-family: $sans;
+  @include text-base;
+  -webkit-text-size-adjust: none; /* https://kilianvalkhof.com/2022/css-html/your-css-reset-needs-text-size-adjust-probably/ */
+
+  @media (prefers-reduced-motion: no-preference) {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :focus-visible {
+    transition: outline-offset 145ms $ease-2;
+  }
+  :where(:not(:active)):focus-visible {
+    transition-duration: .25s;
+  }
+}
+
+:where(:not(:active)):focus-visible {
+  outline-offset: 5px;
+}
+
+:where(body) { 
+  min-block-size: 100%;
+  scrollbar-gutter: stable both-edges;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  font-weight: 700;
+}
+
+:where(h1) { 
+  @include text-5xl;
+}
+
+:where(h2) { 
+  @include text-4xl;
+}
+
+:where(h3) { 
+  @include text-3xl;
+}
+:where(h4) { 
+  @include text-2xl;
+}
+:where(h5) { 
+  @include text-xl;
+}
+
+:where(h3, h4, h5, h6, dt) {
+  max-inline-size: 35ch;
+}
+
+:where(p, ul, ol, dl, h6) {
+  @include text-base;
+}
+
+:where(a, u, ins, abbr) {
+  text-underline-offset: 1px;
+}
+
+:where(a[href], area, button, input, label[for], select, summary, textarea, [tabindex]:not([tabindex*="-"])) {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+:where(a) {
+  padding-inline: spacing(1);
+  margin-inline: spacing(-1);
+  padding-block: spacing(1);
+  margin-block: spacing(-1);
+
+  &:where([href]) {
+    text-decoration-color: $indigo-200;
+
+    &:where(:visited) {
+      text-decoration-color: $purple-200;
+    }
+  }
+
+  &:where(:not(:hover)) {
+    text-decoration: inherit;
+  }
+}
+
+:where(img, svg, video, canvas, audio, iframe, embed, object) {
+  display: block;
+}
+
+:where(img, svg, video) {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+:where(input, button, textarea, select),
+:where(input[type="file"])::-webkit-file-upload-button {
+  font: inherit;
+  font-size: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+}
+
+:where(input) {
+  padding-inline: spacing(2);
+  padding-block: spacing(1);
+}
+
+:where(textarea, input:not(button,button[type],input[type="button"],input[type="submit"],input[type="reset"])) {
+  background-color: $gray-100;
+  border-radius: spacing(2);
+
+  @include dark {
+    background-color: $gray-200;
+  }
+}
+
+:where(select, textarea) {
+  padding-inline: spacing(2);
+  padding-block: spacing(1);
+}
+
+:where(textarea) { resize: block }
+
+:where(input[type="checkbox"], input[type="radio"]) {
+  block-size: spacing(3);
+  inline-size: spacing(3);
+}
+
+:where(svg) {
+  stroke: none;
+  fill: currentColor;
+
+  &:where(:not([fill])) {
+    stroke: currentColor;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  &:where(:not([width])) {
+    inline-size: spacing(10);
+  }
+}
+
+:where(code, kbd, samp, pre) { font-family: $mono }
+:where(:not(pre) > code, kbd) { white-space: nowrap }
+
+:where(pre) { 
+  white-space: pre;
+  min-inline-size: 0;
+  max-inline-size: max-content; 
+}
+
+:where(:not(pre) > code) {
+  padding: spacing(1) spacing(2);
+  background: $gray-100;
+  border-radius: spacing(2);
+}
+
+:where(kbd, var) {
+  padding: spacing(1) spacing(2);
+  border-width: 1px;
+  border-color: $gray-400;
+  border-radius: spacing(2);
+}
+
+:where(mark) {
+  border-radius: spacing(2);
+  padding-inline: spacing(1);
+}
+
+:where(ol, ul) { padding-inline-start: spacing(8) }
+:where(li) { padding-inline-start: spacing(2) }
+:where(li, dd, figcaption) { max-inline-size: spacing(2) }
+:where(p) { max-inline-size: spacing(3) }
+:where(dt, summary) { font-weight: 700 }
+
+:where(dt:not(:first-of-type)) {
+  margin-block-start: spacing(5);
+}
+
+:where(small) {
+  @include text-xs;
+  max-inline-size: spacing(1);
+}
+
+:where(hr) {
+  margin-block: spacing(5);
+  height: 2px;
+  background-color: $gray-300;
+}
+
+:where(figure) {
+  display: grid;
+  gap: spacing(2);
+  place-items: center;
+
+  & > :where(figcaption) {
+    @include text-sm;
+  }
+}
+
+:where(blockquote, :not(blockquote) > cite) {
+  border-inline-start-width: 3px;
+}
+
+:where(blockquote) {
+  display: grid;
+  gap: spacing(3);
+  padding-block: spacing(3);
+  padding-inline: spacing(4);
+  max-inline-size: spacing(2);
+}
+
+:where(:not(blockquote) > cite) {
+  padding-inline-start: spacing(2);
+}
+
+:where(summary) {
+  background: $gray-300;
+  padding: spacing(2) spacing(3);
+  margin: spacing(-2) spacing(-3);
+  border-radius: spacing(2);
+}
+
+:where(details) {
+  padding-inline: spacing(3);
+  padding-block: spacing(2);
+  background: $gray-200;
+  border-radius: spacing(2);
+}
+
+:where(details[open] > summary) {
+  margin-bottom: spacing(2);
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+}
+
+:where(fieldset) {
+  border-radius: spacing(2);
+  border: 1px solid $gray-400;
+}
+
+:where(del) {
+  background: $red-900;
+  color: $red-200;
+}
+
+:where(ins) {
+  background: $green-900;
+  color: $green-100;
+}
+
+:where(abbr) {
+  text-decoration-color: $blue-500;
+}
+
+:where(dialog) {
+  background-color: $gray-100;
+  color: inherit;
+  border-radius: spacing(3);
+  box-shadow: shadow(6);
+
+  @include dark {
+    background-color: $gray-200;
+  }
+
+  &::backdrop {
+    backdrop-filter: blur(25px);
+  }
+}
+
+:where(html:has(dialog[open])) {
+  overflow: hidden;
+}
+
+:where(menu) {
+  padding-inline-start: 0;
+  display: flex;
+  gap: spacing(3);
+}
