@@ -1,0 +1,10 @@
+@use '../../packages/bridgecss/bridge.scss' as *;
+@use '../../packages/bridgecss/normalize.scss' as *;
+
+#app {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: $gray-500;
+  margin-top: 60px;
+}
