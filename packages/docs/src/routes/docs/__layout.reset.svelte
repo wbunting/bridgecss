@@ -77,6 +77,9 @@
 				},
 				{
 					name: 'Prose'
+				},
+				{
+					name: 'Normalize'
 				}
 			]
 		},
