@@ -48,7 +48,7 @@ We have written in more detail about the philosophy [here]().
 
 ## Documentation
 
-The full documentation for BridgeCSS can be found [here](https://bridgecss.vercel.app/docs/getting-started). It will guide you through the setup process as well as understanding all the available variables / styles.
+The full documentation for BridgeCSS can be found [here](https://bridgecss.com/docs/getting-started). It will guide you through the setup process as well as understanding all the available variables / styles.
 
 ## A note on Licensing
 
