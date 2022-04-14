@@ -508,11 +508,6 @@ $ring-shadow: 0 0 #0000;
     font-size: em(14, 16);
     color: $green-500;
     font-family: $mono;
-
-    @include dark {
-      color: $white;
-    }
-
     font-weight: 600;
 
     &:before {

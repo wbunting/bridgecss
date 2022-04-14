@@ -113,11 +113,6 @@
 }
 
 :where(a) {
-  padding-inline: spacing(1);
-  margin-inline: spacing(-1);
-  padding-block: spacing(1);
-  margin-block: spacing(-1);
-
   &:where([href]) {
     text-decoration-color: $indigo-200;
 
@@ -195,13 +190,16 @@
 
 :where(pre) { 
   white-space: pre;
-  min-inline-size: 0;
-  max-inline-size: max-content; 
+  overflow-x: scroll;
+  width: 100%;
 }
 
 :where(:not(pre) > code) {
   padding: spacing(1) spacing(2);
   background: $gray-100;
+  @include dark {
+    background: $gray-800;
+  }
   border-radius: spacing(2);
 }
 
@@ -252,7 +250,6 @@
 :where(blockquote) {
   display: grid;
   gap: spacing(3);
-  padding-block: spacing(3);
   padding-inline: spacing(4);
 }
 
