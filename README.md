@@ -10,8 +10,6 @@
 
 # BridgeCSS
 
-> Note: This project is dual licensed under the GPL and a proprietary license available for purchase. This means if you intend to use this library in non-free software you must pay the licensing fee.
-
 BridgeCSS is a lightweight set of SCSS mixins and variables that allow for the rapid development of websites and web-based applications. 
 
 ## Philosophy
@@ -50,6 +48,3 @@ We have written in more detail about the philosophy [here]().
 
 The full documentation for BridgeCSS can be found [here](https://bridgecss.com/docs/getting-started). It will guide you through the setup process as well as understanding all the available variables / styles.
 
-## A note on Licensing
-
-In order to make this project sustainable, we felt it a good idea to have a GPL version for free software usage. This should make it possible to not block any independent users from building on Bridge as long as they release their source code. However, since CSS is not a large threat to user freedom (due to the limited eg. spying capabilities that it has compared with Javascript) we could release a Proprietary license for corporations who wish to style their sties using Bridge (but were otherwise unlikely to release their source code). 

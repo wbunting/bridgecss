@@ -140,9 +140,6 @@
 						href="/docs/getting-bridge"
 						data-active={pathname.startsWith('/docs')}>Docs</a
 					>
-					<a sveltekit:prefetch href="/licensing" data-active={pathname.startsWith('/licensing')}
-						>Licensing</a
-					>
 					<a href="https://github.com/wbunting/bridgecss">Github</a>
 				</div>
 			</div>
