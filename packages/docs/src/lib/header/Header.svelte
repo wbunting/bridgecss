@@ -71,14 +71,6 @@
 					data-active={pathname.startsWith('/docs')}>Docs</a
 				>
 			</li>
-			<li class="mobile-hide">
-				<a
-					class="underline"
-					sveltekit:prefetch
-					href="/licensing"
-					data-active={pathname.startsWith('/licensing')}>Licensing</a
-				>
-			</li>
 			<li>
 				<button aria-label="Dark Mode Toggle" class="dark-mode-toggle" on:click={handleToggleDark}>
 					{#if mode === 'dark'}
